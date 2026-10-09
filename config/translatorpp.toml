@@ -1,0 +1,16 @@
+#Allowed Values: NAME_ONLY, NAME_TOP, LINE_BY_LINE, ALL_IN_END, REPLACE
+mode = "LINE_BY_LINE"
+source_language = "en-US"
+target_language = "pt-BR"
+#Allowed Values: GoogleTranslation, OpenAIClient, DeepLTranslation, LibreTranslate, OllamaClient
+service = "GoogleTranslation"
+openai_apikey = ""
+#Allowed Values: OpenAI, Gemini, Claude, Grok, DeepSeek, Custom
+openai_baseurl = "OpenAI"
+openai_custom_baseurl = "https://custom.api.url/"
+deepl_apikey = ""
+libre_apikey = ""
+libre_baseurl = "https://libretranslate.com/"
+ollama_baseurl = "http://127.0.0.1:11434/"
+openai_model = ""
+ollama_model = ""

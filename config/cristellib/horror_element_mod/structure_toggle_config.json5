@@ -1,0 +1,47 @@
+{
+	"crucifiedsect": {
+		"crucifiedsect": true
+	},
+	"deathcamp": {
+		"deathcamp": true
+	},
+	"devastatedfarm": {
+		"devastatedfarm": true
+	},
+	"entitytower": {
+		"entitytower": true
+	},
+	"forestbody": {
+		"forestbody": true
+	},
+	"fortified_church": {
+		"fortified_church": true
+	},
+	"graveyard": {
+		"graveyard": true
+	},
+	"herobrine_sanctum": {
+		"herobrine_sanctum": true
+	},
+	"laboratory": {
+		"laboratory": true
+	},
+	"labyrinth": {
+		"labyrinth": true
+	},
+	"laststandhouse": {
+		"laststandhouse": true
+	},
+	"militaryritual": {
+		"militaryritual": true
+	},
+	"psycho_house": {
+		"psycho_house": true
+	},
+	"villagertree": {
+		"villagertree": true
+	},
+	"voodoo_sanctum": {
+		"voodoo_sanctum": true
+	}
+}

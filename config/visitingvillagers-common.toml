@@ -1,0 +1,47 @@
+["General Settings"]
+	#Interval between spawn checks in seconds. (Default: 10)
+	# Default: 10
+	# Range: 1 ~ 60
+	spawnCheckIntervalSeconds = 10
+	#Minimum number of villagers required in a village for visitors to start spawning.
+	# Default: 6
+	# Range: 1 ~ 100
+	minVillagersForSpawn = 6
+	#Minimum number of iron golems required in a village for visitors to start spawning.
+	# Default: 1
+	# Range: 0 ~ 50
+	minGolemsForSpawn = 1
+
+["Adult Visitors"]
+	#Percentage of villagers that can be visitors. (0-100)
+	# Default: 100
+	# Range: 0 ~ 100
+	visitorSpawnPercentage = 100
+	#Maximum number of adult visitors that can spawn in a single check cycle.
+	# Default: 3
+	# Range: 1 ~ 10
+	maxSpawnsPerCycle = 3
+	#Percentage chance that a 'DEFAULT' variant visitor will have trades. (0-100)
+	# Default: 40
+	# Range: 0 ~ 100
+	defaultVisitorTradeChance = 40
+
+["Baby Visitors"]
+	#Minimum number of adult visitors required to start spawning babies.
+	# Default: 2
+	# Range: 1 ~ 10
+	minAdultsForBaby = 2
+	#Percentage of adult visitors that can be baby visitors. (0-100)
+	# Default: 60
+	# Range: 0 ~ 100
+	babySpawnPercentage = 60
+
+["Wandering Visitors"]
+	#Maximum number of wandering visitors allowed in a village area.
+	# Default: 2
+	# Range: 0 ~ 10
+	maxWanderingVisitors = 2
+	#Delay in seconds between individual wandering visitor spawns. (Default: 120 seconds / 2 minutes)
+	# Default: 120
+	# Range: 10 ~ 600
+	wanderingSpawnDelaySeconds = 120

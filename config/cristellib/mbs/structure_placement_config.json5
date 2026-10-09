@@ -1,0 +1,482 @@
+{
+	"abandoned_house": {
+		"salt": 387124345,
+		"separation": 12,
+		"spacing": 28
+	},
+	"big_pale_house_1": {
+		"salt": 217572324,
+		"separation": 9,
+		"spacing": 14
+	},
+	"big_pool": {
+		"salt": 126280573,
+		"separation": 6,
+		"spacing": 11
+	},
+	"bone_remains": {
+		"salt": 371808444,
+		"separation": 16,
+		"spacing": 22
+	},
+	"building_remains": {
+		"salt": 675570141,
+		"separation": 8,
+		"spacing": 14
+	},
+	"cobweb_stilt_house": {
+		"salt": 451252647,
+		"separation": 14,
+		"spacing": 20
+	},
+	"cozy_camp": {
+		"salt": 106245318,
+		"separation": 22,
+		"spacing": 31
+	},
+	"dead_big_house_1": {
+		"salt": 781849983,
+		"separation": 27,
+		"spacing": 37
+	},
+	"dead_campfire_1": {
+		"salt": 940762136,
+		"separation": 6,
+		"spacing": 16
+	},
+	"dead_forest_well": {
+		"salt": 796877068,
+		"separation": 11,
+		"spacing": 17
+	},
+	"dead_gold_pile_iron_golem": {
+		"salt": 276006701,
+		"separation": 10,
+		"spacing": 20
+	},
+	"dead_house_2": {
+		"salt": 814606502,
+		"separation": 22,
+		"spacing": 37
+	},
+	"dead_house_3": {
+		"salt": 760344930,
+		"separation": 22,
+		"spacing": 33
+	},
+	"dead_house_4": {
+		"salt": 939451906,
+		"separation": 21,
+		"spacing": 33
+	},
+	"dead_house_5_bed": {
+		"salt": 853719764,
+		"separation": 24,
+		"spacing": 34
+	},
+	"dead_house_5_path": {
+		"salt": 131479415,
+		"separation": 19,
+		"spacing": 29
+	},
+	"dead_log_tall_stumps": {
+		"salt": 124577640,
+		"separation": 5,
+		"spacing": 15
+	},
+	"dead_pine_cart1": {
+		"salt": 204849178,
+		"separation": 16,
+		"spacing": 22
+	},
+	"dead_pine_cart_2": {
+		"salt": 513347718,
+		"separation": 16,
+		"spacing": 22
+	},
+	"dead_tree": {
+		"salt": 174434600,
+		"separation": 13,
+		"spacing": 19
+	},
+	"dead_tree_patch": {
+		"salt": 610351212,
+		"separation": 11,
+		"spacing": 18
+	},
+	"dead_wood_cart": {
+		"salt": 436910573,
+		"separation": 19,
+		"spacing": 23
+	},
+	"dead_wood_church": {
+		"salt": 692851412,
+		"separation": 24,
+		"spacing": 32
+	},
+	"dead_wood_ghost_train": {
+		"salt": 384456145,
+		"separation": 39,
+		"spacing": 47
+	},
+	"dead_wood_lamp": {
+		"salt": 212977225,
+		"separation": 16,
+		"spacing": 27
+	},
+	"dead_wood_logs": {
+		"salt": 835624765,
+		"separation": 11,
+		"spacing": 18
+	},
+	"dead_wood_smiths": {
+		"salt": 628252316,
+		"separation": 32,
+		"spacing": 43
+	},
+	"dead_wood_train_tracks": {
+		"salt": 390280716,
+		"separation": 27,
+		"spacing": 36
+	},
+	"desert_big_house_1": {
+		"salt": 936635613,
+		"separation": 23,
+		"spacing": 34
+	},
+	"desert_campfire": {
+		"salt": 332193718,
+		"separation": 6,
+		"spacing": 19
+	},
+	"desert_cart_1": {
+		"salt": 856535439,
+		"separation": 11,
+		"spacing": 22
+	},
+	"desert_gold_pile_with_land": {
+		"salt": 340845554,
+		"separation": 17,
+		"spacing": 19
+	},
+	"desert_pine_cart2": {
+		"salt": 413503592,
+		"separation": 17,
+		"spacing": 27
+	},
+	"emphyreal_wheat_patch": {
+		"salt": 292524657,
+		"separation": 12,
+		"spacing": 22
+	},
+	"empyreal_well": {
+		"salt": 460165402,
+		"separation": 10,
+		"spacing": 24
+	},
+	"fallen_dead_tree": {
+		"salt": 353866764,
+		"separation": 13,
+		"spacing": 21
+	},
+	"fir_well": {
+		"salt": 848932333,
+		"separation": 11,
+		"spacing": 23
+	},
+	"fire_camp_1": {
+		"salt": 583817370,
+		"separation": 6,
+		"spacing": 11
+	},
+	"gateway_to_somewhere": {
+		"salt": 439039511,
+		"separation": 3,
+		"spacing": 8
+	},
+	"grave_yard": {
+		"salt": 741920667,
+		"separation": 12,
+		"spacing": 17
+	},
+	"hell_well": {
+		"salt": 522132200,
+		"separation": 17,
+		"spacing": 21
+	},
+	"hellbark_patch": {
+		"salt": 571666491,
+		"separation": 7,
+		"spacing": 17
+	},
+	"jacaranda_tree_wheat": {
+		"salt": 650798208,
+		"separation": 21,
+		"spacing": 26
+	},
+	"jacaranda_well_1": {
+		"salt": 927442384,
+		"separation": 5,
+		"spacing": 15
+	},
+	"jungle_campfire": {
+		"salt": 528253592,
+		"separation": 16,
+		"spacing": 22
+	},
+	"jungle_gold_pile": {
+		"salt": 450610016,
+		"separation": 27,
+		"spacing": 38
+	},
+	"jungle_house_2": {
+		"salt": 322146594,
+		"separation": 22,
+		"spacing": 42
+	},
+	"jungle_pine_cart1": {
+		"salt": 978120816,
+		"separation": 19,
+		"spacing": 27
+	},
+	"leafy_column": {
+		"salt": 705888755,
+		"separation": 8,
+		"spacing": 12
+	},
+	"leafy_fallen_branch": {
+		"salt": 261323310,
+		"separation": 8,
+		"spacing": 12
+	},
+	"libraray": {
+		"salt": 125179036,
+		"separation": 15,
+		"spacing": 19
+	},
+	"lodestone_circle": {
+		"salt": 829444705,
+		"separation": 3,
+		"spacing": 12
+	},
+	"log_pile_dead_log": {
+		"salt": 951626083,
+		"separation": 5,
+		"spacing": 15
+	},
+	"log_pile_empyrial": {
+		"salt": 471690801,
+		"separation": 5,
+		"spacing": 15
+	},
+	"log_pile_fir": {
+		"salt": 413973249,
+		"separation": 5,
+		"spacing": 15
+	},
+	"log_pile_hellbark": {
+		"salt": 290942754,
+		"separation": 5,
+		"spacing": 15
+	},
+	"log_pile_jacaranda": {
+		"salt": 974310378,
+		"separation": 5,
+		"spacing": 15
+	},
+	"log_pile_magic": {
+		"salt": 121487191,
+		"separation": 5,
+		"spacing": 15
+	},
+	"log_pile_mahogany": {
+		"salt": 934334951,
+		"separation": 5,
+		"spacing": 15
+	},
+	"log_pile_maple": {
+		"salt": 673580136,
+		"separation": 5,
+		"spacing": 15
+	},
+	"log_pile_origin_oak": {
+		"salt": 142843850,
+		"separation": 5,
+		"spacing": 15
+	},
+	"log_pile_palm": {
+		"salt": 759365615,
+		"separation": 5,
+		"spacing": 15
+	},
+	"log_pile_pine": {
+		"salt": 641333646,
+		"separation": 5,
+		"spacing": 15
+	},
+	"log_pile_redwood": {
+		"salt": 179597776,
+		"separation": 5,
+		"spacing": 15
+	},
+	"log_pile_umbram": {
+		"salt": 154952973,
+		"separation": 5,
+		"spacing": 15
+	},
+	"log_pile_willow": {
+		"salt": 656062274,
+		"separation": 5,
+		"spacing": 15
+	},
+	"lonely_tower": {
+		"salt": 525653861,
+		"separation": 3,
+		"spacing": 12
+	},
+	"lonely_well": {
+		"salt": 965017386,
+		"separation": 6,
+		"spacing": 25
+	},
+	"magic_tree_patch": {
+		"salt": 166309355,
+		"separation": 13,
+		"spacing": 19
+	},
+	"magic_well": {
+		"salt": 815378165,
+		"separation": 10,
+		"spacing": 20
+	},
+	"mahogany_leaves_patch": {
+		"salt": 588382211,
+		"separation": 19,
+		"spacing": 25
+	},
+	"mahogany_well_1": {
+		"salt": 488317212,
+		"separation": 16,
+		"spacing": 25
+	},
+	"mahogany_wheat_patch": {
+		"salt": 106271470,
+		"separation": 18,
+		"spacing": 26
+	},
+	"maple_well": {
+		"salt": 205071470,
+		"separation": 19,
+		"spacing": 28
+	},
+	"mini_watch_tower": {
+		"salt": 814306562,
+		"separation": 9,
+		"spacing": 14
+	},
+	"orange_maple_patch": {
+		"salt": 105755912,
+		"separation": 5,
+		"spacing": 15
+	},
+	"pine_tree": {
+		"salt": 842019392,
+		"separation": 5,
+		"spacing": 15
+	},
+	"pine_well": {
+		"salt": 289915677,
+		"separation": 18,
+		"spacing": 27
+	},
+	"pine_wheat_patch": {
+		"salt": 209296476,
+		"separation": 5,
+		"spacing": 15
+	},
+	"pirate_stash_1": {
+		"salt": 635860034,
+		"separation": 11,
+		"spacing": 14
+	},
+	"plainsandgrass_campfire": {
+		"salt": 561696222,
+		"separation": 13,
+		"spacing": 19
+	},
+	"plainsandgrass_gold_pile": {
+		"salt": 130373503,
+		"separation": 17,
+		"spacing": 28
+	},
+	"plainsandgrass_house_2": {
+		"salt": 823172027,
+		"separation": 34,
+		"spacing": 44
+	},
+	"plainsandgrass_pine_cart": {
+		"salt": 505105110,
+		"separation": 16,
+		"spacing": 26
+	},
+	"plainsandgrass_pine_cart_2": {
+		"salt": 520319397,
+		"separation": 19,
+		"spacing": 29
+	},
+	"redwood_leaves_patch": {
+		"salt": 834977740,
+		"separation": 14,
+		"spacing": 24
+	},
+	"rock_pile": {
+		"salt": 645864810,
+		"separation": 5,
+		"spacing": 15
+	},
+	"sacrafice_grounds": {
+		"salt": 522935479,
+		"separation": 5,
+		"spacing": 15
+	},
+	"stable": {
+		"salt": 263106040,
+		"separation": 3,
+		"spacing": 8
+	},
+	"stone_archway": {
+		"salt": 392267547,
+		"separation": 3,
+		"spacing": 8
+	},
+	"stone_pillar": {
+		"salt": 144376519,
+		"separation": 7,
+		"spacing": 11
+	},
+	"umbram_leaves_patch": {
+		"salt": 261516890,
+		"separation": 5,
+		"spacing": 15
+	},
+	"umbran_lamp": {
+		"salt": 833417921,
+		"separation": 5,
+		"spacing": 15
+	},
+	"umbran_well": {
+		"salt": 666966961,
+		"separation": 5,
+		"spacing": 15
+	},
+	"watch_tower": {
+		"salt": 402626140,
+		"separation": 11,
+		"spacing": 14
+	},
+	"wheat_feild_tall_1": {
+		"salt": 863142240,
+		"separation": 3,
+		"spacing": 8
+	}
+}

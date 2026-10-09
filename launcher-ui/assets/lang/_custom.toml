@@ -1,0 +1,362 @@
+# Textos do Side-Mine. Este arquivo sobrescreve en_US.toml.
+
+[ejs.app]
+title = "Side-Mine"
+
+[ejs.landing]
+mediaGitHubURL = "https://github.com/dscalzi/HeliosLauncher"
+mediaXURL = "#"
+mediaInstagramURL = "#"
+mediaYouTubeURL = "#"
+mediaDiscordURL = "#"
+updateAvailableTooltip = "Atualização disponível"
+usernamePlaceholder = "Usuário"
+usernameEditButton = "Editar"
+settingsTooltip = "Configurações"
+serverStatus = "SERVIDOR"
+serverStatusPlaceholder = "OFFLINE"
+mojangStatus = "STATUS MOJANG"
+mojangStatusTooltipTitle = "Serviços"
+mojangStatusNETitle = "Não essenciais"
+newsButton = "NOTÍCIAS"
+launchButton = "JOGAR"
+launchButtonPlaceholder = "&#8226; Nenhum servidor selecionado"
+launchDetails = "Aguarde.."
+newsNavigationStatus = "{currentPage} de {totalPages}"
+newsErrorLoadSpan = "Buscando notícias.."
+newsErrorFailedSpan = "Falha ao carregar notícias"
+newsErrorRetryButton = "Tentar de novo"
+newsErrorNoneSpan = "Sem notícias"
+
+[ejs.login]
+loginCancelText = "Cancelar"
+loginSubheader = "ENTRAR NO MINECRAFT"
+loginEmailError = "* Valor inválido"
+loginEmailPlaceholder = "E-MAIL OU USUÁRIO"
+loginPasswordError = "* Obrigatório"
+loginPasswordPlaceholder = "SENHA"
+loginForgotPasswordText = "esqueceu a senha?"
+loginRememberMeText = "lembrar de mim?"
+loginButtonText = "ENTRAR"
+loginNeedAccountText = "Precisa de uma conta?"
+loginPasswordDisclaimer1 = "Sua senha é enviada direto à Mojang e nunca fica armazenada."
+loginPasswordDisclaimer2 = "{appName} não é afiliado à Mojang AB."
+
+[ejs.loginOptions]
+loginOptionsTitle = "Como entrar"
+nickLabel = "Indique o seu Nick"
+nickPlaceholder = "Nick"
+nickButton = "ENTRAR"
+cancelButton = "Cancelar"
+
+[ejs.overlay]
+serverSelectHeader = "Servidores"
+serverSelectConfirm = "Selecionar"
+serverSelectCancel = "Cancelar"
+accountSelectHeader = "Escolha uma conta"
+accountSelectConfirm = "Selecionar"
+accountSelectCancel = "Cancelar"
+
+[ejs.settings]
+navHeaderText = "Configurações"
+navAccount = "Conta"
+navMinecraft = "Minecraft"
+navMods = "Mods"
+navJava = "Java"
+navLauncher = "Launcher"
+navAbout = "Sobre"
+navUpdates = "Atualizações"
+navDone = "Concluir"
+tabAccountHeaderText = "Contas"
+tabAccountHeaderDesc = "Adicione contas ou gerencie as que já existem."
+microsoftAccount = "Microsoft"
+addMicrosoftAccount = "+ Adicionar conta Microsoft"
+mojangAccount = "Nick"
+addMojangAccount = "+ Adicionar nick"
+minecraftTabHeaderText = "Minecraft"
+minecraftTabHeaderDesc = "Opções de como o jogo abre."
+gameResolutionTitle = "Resolução"
+launchFullscreenTitle = "Abrir em tela cheia."
+autoConnectTitle = "Conectar ao servidor ao abrir o jogo."
+multiplayerServerTitle = "Sidequest Server"
+multiplayerServerDesc = "Entra sempre na aba Multijogador. Mude o endereço aqui quando precisar."
+launchDetachedTitle = "Abrir o jogo separado do launcher."
+launchDetachedDesc = "Se o jogo não estiver separado, fechar o launcher também fecha o jogo."
+tabModsHeaderText = "Mods"
+tabModsHeaderDesc = "Ative ou desative mods."
+switchServerButton = "Trocar"
+requiredMods = "Mods obrigatórios"
+optionalMods = "Mods opcionais"
+dropinMods = "Mods soltos"
+addMods = "Adicionar mods"
+dropinRefreshNote = "(F5 para atualizar)"
+shaderpacks = "Shaders"
+shaderpackDesc = "Ative ou desative shaders. Shaders pesam no computador. Você pode colocar pacotes próprios aqui."
+selectShaderpack = "Escolher shader"
+tabJavaHeaderText = "Java"
+tabJavaHeaderDesc = "Configuração do Java (avançado)."
+memoryTitle = "Memória"
+maxRAM = "RAM máxima"
+minRAM = "RAM mínima"
+memoryDesc = "O mínimo recomendado é 3 gigabytes. Usar o mesmo valor no mínimo e no máximo pode reduzir travamentos."
+memoryTotalTitle = "Total"
+memoryAvailableTitle = "Disponível"
+javaExecutableTitle = "Executável do Java"
+javaExecSelDialogTitle = "Escolher o executável do Java"
+javaExecSelButtonText = "Escolher arquivo"
+javaExecDesc = "O executável do Java é conferido antes de abrir o jogo."
+javaPathDesc = "O caminho deve terminar com <strong>{pathSuffix}</strong>."
+jvmOptsTitle = "Opções extras da JVM"
+jvmOptsDesc = "Opções passadas à JVM na execução. <em>-Xms</em> e <em>-Xmx</em> não devem entrar aqui."
+launcherTabHeaderText = "Launcher"
+launcherTabHeaderDesc = "Opções do próprio Side-Mine."
+allowPrereleaseTitle = "Permitir atualizações de pré-lançamento."
+allowPrereleaseDesc = "Pré-lançamentos trazem funções que podem ainda não estar estáveis.<br>Isto fica sempre ligado se você já usa uma versão de pré-lançamento."
+dataDirectoryTitle = "Pasta de dados"
+selectDataDirectory = "Escolher pasta de dados"
+chooseFolder = "Escolher pasta"
+dataDirectoryDesc = "Os arquivos do jogo e as instalações locais do Java ficam nesta pasta.<br>Capturas e mundos ficam na pasta da instância de cada servidor."
+aboutTabHeaderText = "Sobre"
+aboutTabHeaderDesc = "Informações desta versão do Side-Mine."
+aboutTitle = "{appName}"
+stableRelease = "Versão estável"
+versionText = "Versão "
+sourceGithub = "Código-fonte (Helios)"
+support = "Suporte"
+devToolsConsole = "Console do DevTools"
+releaseNotes = "Notas da versão"
+changelog = "Novidades"
+noReleaseNotes = "Sem notas de versão"
+viewReleaseNotes = "Ver notas no GitHub"
+launcherUpdatesHeaderText = "Atualizações do launcher"
+launcherUpdatesHeaderDesc = "Baixe e instale atualizações do Side-Mine."
+checkForUpdates = "Procurar atualizações"
+whatsNew = "O que há de novo"
+updateReleaseNotes = "Notas da atualização"
+
+[ejs.waiting]
+waitingText = "Aguardando a Microsoft.."
+
+[ejs.welcome]
+welcomeHeader = "BEM-VINDO AO SIDEQUEST"
+welcomeDescription = "O Side-Mine instala o cliente do Sidequest RPG e mantém os mods atualizados. Quests novas toda semana."
+welcomeDescCTA = "Indique o seu nick para continuar."
+continueButton = "CONTINUAR"
+
+[js.discord]
+waiting = "Aguardando o cliente.."
+state = "Servidor: {shortId}"
+
+[js.index]
+microsoftLoginTitle = "Entrar com a Microsoft"
+microsoftLogoutTitle = "Sair da Microsoft"
+
+[js.login]
+login = "ENTRAR"
+loggingIn = "ENTRANDO"
+success = "PRONTO"
+tryAgain = "Tentar de novo"
+
+[js.loginOptions]
+nickInvalid = "Use de 3 a 16 caracteres: letras, números ou _."
+
+[js.login.error]
+invalidValue = "* Valor inválido"
+requiredValue = "* Obrigatório"
+
+[js.login.error.unknown]
+title = "Erro desconhecido no login"
+desc = "Ocorreu um erro desconhecido. Veja o console para detalhes."
+
+[js.landing.launch]
+pleaseWait = "Aguarde.."
+failureTitle = "Erro ao iniciar"
+failureText = "Veja o console (CTRL + Shift + I) para mais detalhes."
+okay = "Ok"
+
+[js.landing.selectedAccount]
+noAccountSelected = "Nenhuma conta selecionada"
+
+[js.landing.selectedServer]
+noSelection = "Nenhum servidor selecionado"
+loading = "Carregando.."
+
+[js.landing.serverStatus]
+server = "SERVIDOR"
+offline = "OFFLINE"
+players = "JOGADORES"
+
+[js.landing.systemScan]
+checking = "Conferindo o sistema.."
+noCompatibleJava = "Nenhum Java<br>compatível encontrado"
+installJavaMessage = "Para abrir o Minecraft é preciso um Java {major} de 64 bits. Quer que o Side-Mine instale uma cópia?"
+installJava = "Instalar o Java"
+installJavaManually = "Instalar manualmente"
+javaDownloadPrepare = "Preparando o download do Java.."
+javaDownloadFailureTitle = "Erro ao baixar o Java"
+javaDownloadFailureText = "Veja o console (CTRL + Shift + I) para mais detalhes."
+javaRequired = "O Java é necessário<br>para jogar"
+javaRequiredMessage = "É preciso um Java {major} de 64 bits para abrir o jogo."
+javaRequiredDismiss = "Entendi"
+javaRequiredCancel = "Voltar"
+
+[js.landing.downloadJava]
+findJdkFailure = "Não foi possível achar uma distribuição do OpenJDK."
+javaDownloadCorruptedError = "O JDK baixado tem um hash inválido. O arquivo pode estar corrompido."
+extractingJava = "Extraindo o Java"
+javaInstalled = "Java instalado!"
+
+[js.landing.dlAsync]
+loadingServerInfo = "Carregando informações do servidor.."
+fatalError = "Erro fatal"
+unableToLoadDistributionIndex = "Não foi possível carregar o índice de distribuição. Veja o console (CTRL + Shift + I)."
+pleaseWait = "Aguarde.."
+errorDuringLaunchTitle = "Erro ao iniciar"
+seeConsoleForDetails = "Veja o console (CTRL + Shift + I) para mais detalhes."
+validatingFileIntegrity = "Conferindo os arquivos.."
+errorDuringFileVerificationTitle = "Erro ao conferir os arquivos"
+downloadingFiles = "Baixando arquivos.."
+errorDuringFileDownloadTitle = "Erro ao baixar arquivos"
+preparingToLaunch = "Preparando para abrir.."
+aligningClient = "Alinhando mods, configurações e teclas.."
+launchingGame = "Abrindo o jogo.."
+launchWrapperNotDownloaded = "Um arquivo essencial do jogo não foi baixado. O jogo não pode abrir.<br><br>Desative o antivírus por um momento e tente de novo."
+doneEnjoyServer = "Pronto. Bom jogo."
+checkConsoleForDetails = "Veja o console (CTRL + Shift + I) para mais detalhes."
+
+[js.landing.news]
+checking = "Buscando notícias"
+
+[js.landing.discord]
+loading = "Carregando o jogo.."
+joining = "Entrando no Sidequest.."
+joined = "No Sidequest RPG"
+
+[js.overlay]
+dismiss = "Fechar"
+
+[js.settings.fileSelectors]
+executables = "Executáveis"
+allFiles = "Todos os arquivos"
+
+[js.settings.mstfLogin]
+errorTitle = "Algo deu errado"
+errorMessage = "A autenticação da Microsoft falhou. Tente de novo."
+okButton = "OK"
+
+[js.settings.mstfLogout]
+errorTitle = "Algo deu errado"
+errorMessage = "Não foi possível sair da conta Microsoft. Tente de novo."
+okButton = "OK"
+
+[js.settings.authAccountSelect]
+selectButton = "Selecionar conta"
+selectedButton = "Conta selecionada &#10004;"
+
+[js.settings.authAccountLogout]
+lastAccountWarningTitle = "Aviso<br>Esta é a sua última conta"
+lastAccountWarningMessage = "O launcher precisa de pelo menos uma conta. Você terá de entrar de novo depois.<br><br>Quer mesmo sair?"
+confirmButton = "Tenho certeza"
+cancelButton = "Cancelar"
+
+[js.settings.authAccountPopulate]
+username = "Usuário"
+uuid = "UUID"
+selectAccount = "Selecionar conta"
+selectedAccount = "Conta selecionada ✓"
+logout = "Sair"
+
+[js.settings.dropinMods]
+removeButton = "Remover"
+deleteFailedTitle = "Falha ao apagar<br>o mod {fullName}"
+deleteFailedMessage = "Confira se o arquivo não está em uso e tente de novo."
+failedToggleTitle = "Falha ao alternar<br>um ou mais mods"
+okButton = "Ok"
+
+[js.settings.serverListing]
+mainServer = "Servidor principal"
+
+[js.settings.java]
+selectedJava = "Selecionado: Java {version} ({vendor})"
+invalidSelection = "Seleção inválida"
+requiresJava = "Exige Java {major} x64."
+availableOptions = "Opções de Java {major} (HotSpot VM)"
+
+[js.settings.about]
+preReleaseTitle = "Pré-lançamento"
+stableReleaseTitle = "Versão estável"
+releaseNotesFailed = "Não foi possível carregar as notas."
+sideMineNotes = "Launcher Side-Mine para o Sidequest RPG. Minecraft 26.2 com NeoForge. Os mods passam a ser baixados quando o distribution.json estiver no GitHub Pages."
+
+[js.settings.updates]
+newReleaseTitle = "Nova versão disponível"
+newPreReleaseTitle = "Novo pré-lançamento disponível"
+downloadingButton = "Baixando.."
+downloadButton = "Baixar no GitHub"
+latestVersionTitle = "Você já está na versão mais recente"
+checkForUpdatesButton = "Procurar atualizações"
+checkingForUpdatesButton = "Procurando atualizações.."
+
+[js.settings.msftLogin]
+errorTitle = "Falha no login da Microsoft"
+errorMessage = "Não foi possível autenticar a conta Microsoft. Tente de novo."
+okButton = "OK"
+
+[js.uibinder.startup]
+fatalErrorTitle = "Erro fatal: índice de distribuição"
+fatalErrorMessage = "Não foi possível baixar o índice de mods e não havia uma cópia local. O Side-Mine não abre sem esse arquivo. Confira a internet e abra de novo."
+closeButton = "Fechar"
+
+[js.uibinder.validateAccount]
+failedMessageTitle = "Falha ao renovar o login"
+failedMessage = "Não foi possível renovar o login de <strong>{account}</strong>. Escolha outra conta ou entre de novo."
+failedMessageSelectAnotherAccount = "Não foi possível renovar o login de <strong>{account}</strong>. Entre de novo."
+loginButton = "Entrar"
+selectAnotherAccountButton = "Escolher outra conta"
+
+[js.uicore.autoUpdate]
+checkingForUpdateButton = "Procurando atualizações..."
+installNowButton = "Instalar agora"
+checkForUpdatesButton = "Procurar atualizações"
+
+[js.auth.microsoft.error]
+noProfileTitle = "Erro no login:<br>perfil não configurado"
+noProfileDesc = "Esta conta Microsoft ainda não tem um perfil de Minecraft. Se você comprou o jogo ou o resgatou pelo Game Pass, configure o perfil em <a href=\"https://minecraft.net/\">Minecraft.net</a>."
+noXboxAccountTitle = "Erro no login:<br>sem conta Xbox"
+noXboxAccountDesc = "Esta conta Microsoft não tem uma conta Xbox associada."
+xblBannedTitle = "Erro no login:<br>Xbox Live indisponível"
+xblBannedDesc = "Esta conta Microsoft é de um país em que o Xbox Live não está disponível."
+under18Title = "Erro no login:<br>aprovação dos pais"
+under18Desc = "Contas de menores de 18 anos precisam ser adicionadas a uma Família por um adulto."
+unknownTitle = "Erro desconhecido no login"
+unknownDesc = "Ocorreu um erro desconhecido. Veja o console para detalhes."
+
+[js.auth.mojang.error]
+methodNotAllowedTitle = "Erro interno:<br>método não permitido"
+methodNotAllowedDesc = "Método não permitido."
+notFoundTitle = "Erro interno:<br>não encontrado"
+notFoundDesc = "O endereço de autenticação não foi encontrado."
+accountMigratedTitle = "Erro no login:<br>conta migrada"
+accountMigratedDesc = "Esta conta foi migrada. Tente de novo usando o e-mail como usuário."
+invalidCredentialsTitle = "Erro no login:<br>dados inválidos"
+invalidCredentialsDesc = "O e-mail ou a senha estão incorretos."
+tooManyAttemptsTitle = "Erro no login:<br>muitas tentativas"
+tooManyAttemptsDesc = "Houve tentativas demais nesta conta. Tente mais tarde."
+invalidTokenTitle = "Erro no login:<br>token inválido"
+invalidTokenDesc = "O token de acesso é inválido."
+tokenHasProfileTitle = "Erro no login:<br>token já tem perfil"
+tokenHasProfileDesc = "O token de acesso já tem um perfil."
+credentialsMissingTitle = "Erro no login:<br>dados ausentes"
+credentialsMissingDesc = "Usuário ou senha não foram enviados, ou a senha tem menos de 3 caracteres."
+invalidSaltVersionTitle = "Erro no login:<br>versão de salt inválida"
+invalidSaltVersionDesc = "Versão de salt inválida."
+unsupportedMediaTypeTitle = "Erro interno:<br>tipo de mídia não suportado"
+unsupportedMediaTypeDesc = "Tipo de mídia não suportado."
+accountGoneTitle = "Erro no login:<br>conta migrada"
+accountGoneDesc = "A conta foi migrada para a Microsoft. Entre com a Microsoft."
+unreachableTitle = "Erro no login:<br>sem conexão"
+unreachableDesc = "Não foi possível alcançar os servidores de autenticação."
+gameNotPurchasedTitle = "Erro no login:<br>jogo não comprado"
+gameNotPurchasedDesc = "Esta conta não tem uma cópia do Minecraft. Você pode comprar em <a href=\"https://minecraft.net/\">Minecraft.net</a>."
+unknownErrorTitle = "Erro desconhecido no login"
+unknownErrorDesc = "Ocorreu um erro desconhecido. Veja o console para detalhes."

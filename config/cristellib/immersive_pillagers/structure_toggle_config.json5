@@ -1,0 +1,20 @@
+{
+	"camp": {
+		"camp": true
+	},
+	"desert_lab": {
+		"desert_lab": true
+	},
+	"lab": {
+		"lab": true
+	},
+	"remains": {
+		"remains": true
+	},
+	"remains_desert": {
+		"remains_desert": true
+	},
+	"snow_lab": {
+		"snow_lab": true
+	}
+}

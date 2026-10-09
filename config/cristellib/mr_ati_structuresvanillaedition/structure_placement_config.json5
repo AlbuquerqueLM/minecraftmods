@@ -1,0 +1,32 @@
+{
+	"aboveground_large": {
+		"salt": 93,
+		"separation": 69,
+		"spacing": 70
+	},
+	"aboveground_medium": {
+		"salt": 500,
+		"separation": 3,
+		"spacing": 55
+	},
+	"aboveground_small": {
+		"salt": 100000,
+		"separation": 1,
+		"spacing": 33
+	},
+	"rare": {
+		"salt": 34562347,
+		"separation": 99,
+		"spacing": 111
+	},
+	"underground_medium": {
+		"salt": 817997296,
+		"separation": 20,
+		"spacing": 35
+	},
+	"underground_small": {
+		"salt": 123895344,
+		"separation": 10,
+		"spacing": 15
+	}
+}

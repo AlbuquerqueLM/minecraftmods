@@ -1,0 +1,290 @@
+{
+	"abandoned_house": {
+		"abandoned_house": true
+	},
+	"big_pale_house_1": {
+		"big_pale_house_1": true
+	},
+	"big_pool": {
+		"big_pool": true
+	},
+	"bone_remains": {
+		"bone_remains": true
+	},
+	"building_remains": {
+		"building_remains": true
+	},
+	"cobweb_stilt_house": {
+		"cobweb_stilt_house": true
+	},
+	"cozy_camp": {
+		"cozy_camp": true
+	},
+	"dead_big_house_1": {
+		"dead_big_house_1": true
+	},
+	"dead_campfire_1": {
+		"dead_campfire_1": true
+	},
+	"dead_forest_well": {
+		"dead_forest_well": true
+	},
+	"dead_gold_pile_iron_golem": {
+		"dead_gold_pile_iron_golem": true
+	},
+	"dead_house_2": {
+		"dead_house_2": true
+	},
+	"dead_house_3": {
+		"dead_house_3": true
+	},
+	"dead_house_4": {
+		"dead_house_4": true
+	},
+	"dead_house_5_bed": {
+		"dead_house_5_bed": true
+	},
+	"dead_house_5_path": {
+		"dead_house_5_path": true
+	},
+	"dead_log_tall_stumps": {
+		"dead_log_tall_stumps": true
+	},
+	"dead_pine_cart1": {
+		"dead_pine_cart1": true
+	},
+	"dead_pine_cart_2": {
+		"dead_pine_cart_2": true
+	},
+	"dead_tree": {
+		"dead_tree": true
+	},
+	"dead_tree_patch": {
+		"dead_tree_patch": true
+	},
+	"dead_wood_cart": {
+		"dead_wood_cart": true
+	},
+	"dead_wood_church": {
+		"dead_wood_church": true
+	},
+	"dead_wood_ghost_train": {
+		"dead_wood_ghost_train": true
+	},
+	"dead_wood_lamp": {
+		"dead_wood_lamp": true
+	},
+	"dead_wood_logs": {
+		"dead_wood_logs": true
+	},
+	"dead_wood_smiths": {
+		"dead_wood_smiths": true
+	},
+	"dead_wood_train_tracks": {
+		"dead_wood_train_tracks": true
+	},
+	"desert_big_house_1": {
+		"desert_big_house_1": true
+	},
+	"desert_campfire": {
+		"desert_campfire": true
+	},
+	"desert_cart_1": {
+		"desert_cart_1": true
+	},
+	"desert_gold_pile_with_land": {
+		"desert_gold_pile_with_land": true
+	},
+	"desert_pine_cart2": {
+		"desert_pine_cart2": true
+	},
+	"emphyreal_wheat_patch": {
+		"emphyreal_wheat_patch": true
+	},
+	"empyreal_well": {
+		"empyreal_well": true
+	},
+	"fallen_dead_tree": {
+		"fallen_dead_tree": true
+	},
+	"fir_well": {
+		"fir_well": true
+	},
+	"fire_camp_1": {
+		"fire_camp_1": true
+	},
+	"gateway_to_somewhere": {
+		"gateway_to_somewhere": true
+	},
+	"grave_yard": {
+		"grave_yard": true
+	},
+	"hell_well": {
+		"hell_well": true
+	},
+	"hellbark_patch": {
+		"hellbark_patch": true
+	},
+	"jacaranda_tree_wheat": {
+		"jacaranda_tree_wheat": true
+	},
+	"jacaranda_well_1": {
+		"jacaranda_well_1": true
+	},
+	"jungle_campfire": {
+		"jungle_campfire": true
+	},
+	"jungle_gold_pile": {
+		"jungle_gold_pile": true
+	},
+	"jungle_house_2": {
+		"jungle_house_2": true
+	},
+	"jungle_pine_cart1": {
+		"jungle_pine_cart1": true
+	},
+	"leafy_column": {
+		"leafy_column": true
+	},
+	"leafy_fallen_branch": {
+		"leafy_fallen_branch": true
+	},
+	"libraray": {
+		"libraray": true
+	},
+	"lodestone_circle": {
+		"lodestone_circle": true
+	},
+	"log_pile_dead_log": {
+		"log_pile_dead_log": true
+	},
+	"log_pile_empyrial": {
+		"log_pile_empyrial": true
+	},
+	"log_pile_fir": {
+		"log_pile_fir": true
+	},
+	"log_pile_hellbark": {
+		"log_pile_hellbark": true
+	},
+	"log_pile_jacaranda": {
+		"log_pile_jacaranda": true
+	},
+	"log_pile_magic": {
+		"log_pile_magic": true
+	},
+	"log_pile_mahogany": {
+		"log_pile_mahogany": true
+	},
+	"log_pile_maple": {
+		"log_pile_maple": true
+	},
+	"log_pile_origin_oak": {
+		"log_pile_origin_oak": true
+	},
+	"log_pile_palm": {
+		"log_pile_palm": true
+	},
+	"log_pile_pine": {
+		"log_pile_pine": true
+	},
+	"log_pile_redwood": {
+		"log_pile_redwood": true
+	},
+	"log_pile_umbram": {
+		"log_pile_umbram": true
+	},
+	"log_pile_willow": {
+		"log_pile_willow": true
+	},
+	"lonely_tower": {
+		"lonely_tower": true
+	},
+	"lonely_well": {
+		"lonely_well": true
+	},
+	"magic_tree_patch": {
+		"magic_tree_patch": true
+	},
+	"magic_well": {
+		"magic_well": true
+	},
+	"mahogany_leaves_patch": {
+		"mahogany_leaves_patch": true
+	},
+	"mahogany_well_1": {
+		"mahogany_well_1": true
+	},
+	"mahogany_wheat_patch": {
+		"mahogany_wheat_patch": true
+	},
+	"maple_well": {
+		"maple_well": true
+	},
+	"mini_watch_tower": {
+		"mini_watch_tower": true
+	},
+	"orange_maple_patch": {
+		"orange_maple_patch": true
+	},
+	"pine_tree": {
+		"pine_tree": true
+	},
+	"pine_well": {
+		"pine_well": true
+	},
+	"pine_wheat_patch": {
+		"pine_wheat_patch": true
+	},
+	"pirate_stash_1": {
+		"pirate_stash_1": true
+	},
+	"plainsandgrass_campfire": {
+		"plainsandgrass_campfire": true
+	},
+	"plainsandgrass_gold_pile": {
+		"plainsandgrass_gold_pile": true
+	},
+	"plainsandgrass_house_2": {
+		"plainsandgrass_house_2": true
+	},
+	"plainsandgrass_pine_cart": {
+		"plainsandgrass_pine_cart": true
+	},
+	"plainsandgrass_pine_cart_2": {
+		"plainsandgrass_pine_cart_2": true
+	},
+	"redwood_leaves_patch": {
+		"redwood_leaves_patch": true
+	},
+	"rock_pile": {
+		"rock_pile": true
+	},
+	"sacrafice_grounds": {
+		"sacrafice_grounds": true
+	},
+	"stable": {
+		"stable": true
+	},
+	"stone_archway": {
+		"stone_archway": true
+	},
+	"stone_pillar": {
+		"stone_pillar": true
+	},
+	"umbram_leaves_patch": {
+		"umbram_leaves_patch": true
+	},
+	"umbran_lamp": {
+		"umbran_lamp": true
+	},
+	"umbran_well": {
+		"umbran_well": true
+	},
+	"watch_tower": {
+		"watch_tower": true
+	},
+	"wheat_feild_tall_1": {
+		"wheat_feild_tall_1": true
+	}
+}

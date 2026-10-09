@@ -1,0 +1,32 @@
+{
+	"camp": {
+		"salt": 18726341,
+		"separation": 8,
+		"spacing": 32
+	},
+	"desert_lab": {
+		"salt": 84302761,
+		"separation": 12,
+		"spacing": 48
+	},
+	"lab": {
+		"salt": 62084719,
+		"separation": 12,
+		"spacing": 48
+	},
+	"remains": {
+		"salt": 89417362,
+		"separation": 4,
+		"spacing": 12
+	},
+	"remains_desert": {
+		"salt": 18798436,
+		"separation": 4,
+		"spacing": 12
+	},
+	"snow_lab": {
+		"salt": 91427653,
+		"separation": 12,
+		"spacing": 48
+	}
+}

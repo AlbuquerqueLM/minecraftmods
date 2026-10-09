@@ -1,0 +1,22 @@
+{
+  "protectPetsFromOwner": {
+    "//": "Should the mod prevent owners from attacking their pets?",
+    "//default": true,
+    "value": true
+  },
+  "protectPetsFromPets": {
+    "//": "Should the mod prevent pets from attacking other pets with the same owner?",
+    "//default": true,
+    "value": true
+  },
+  "protectChildren": {
+    "//": "Should the mod prevent non-hostile child/baby mods from being hurt?",
+    "//default": false,
+    "value": false
+  },
+  "displayHitWarning": {
+    "//": "Should players see a warning message when attacking protected mobs?",
+    "//default": true,
+    "value": true
+  }
+}

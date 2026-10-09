@@ -1,0 +1,4 @@
+#If true, Additional Lights fire blocks (for example fire_for_*) can be crafted via recipes.
+#Set this to false if another mod conflicts with them.
+#Run /reload or rejoin the world for the change to take effect.
+enableFireCrafting = false

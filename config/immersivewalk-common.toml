@@ -1,0 +1,10 @@
+# Default: 0.6
+# Range: 0.0 ~ 1.0
+walkSpeedMultiplier = 0.6
+# Default: 0.3
+# Range: 0.0 ~ 1.0
+vanillaMountSpeedMultiplier = 0.3
+# Default: 0.5
+# Range: 0.0 ~ 1.0
+moddedMountSpeedMultiplier = 0.5
+holdToWalk = false

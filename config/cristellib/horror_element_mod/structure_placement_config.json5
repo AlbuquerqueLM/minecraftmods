@@ -1,0 +1,77 @@
+{
+	"crucifiedsect": {
+		"salt": 1309861860,
+		"separation": 18,
+		"spacing": 24
+	},
+	"deathcamp": {
+		"salt": 1792653852,
+		"separation": 20,
+		"spacing": 25
+	},
+	"devastatedfarm": {
+		"salt": 189864551,
+		"separation": 29,
+		"spacing": 36
+	},
+	"entitytower": {
+		"salt": 1149116844,
+		"separation": 21,
+		"spacing": 23
+	},
+	"forestbody": {
+		"salt": 2132945680,
+		"separation": 16,
+		"spacing": 19
+	},
+	"fortified_church": {
+		"salt": 674604989,
+		"separation": 15,
+		"spacing": 20
+	},
+	"graveyard": {
+		"salt": 2096145733,
+		"separation": 20,
+		"spacing": 25
+	},
+	"herobrine_sanctum": {
+		"salt": 594372582,
+		"separation": 21,
+		"spacing": 26
+	},
+	"laboratory": {
+		"salt": 1943062961,
+		"separation": 29,
+		"spacing": 35
+	},
+	"labyrinth": {
+		"salt": 1077119346,
+		"separation": 20,
+		"spacing": 25
+	},
+	"laststandhouse": {
+		"salt": 406111133,
+		"separation": 23,
+		"spacing": 34
+	},
+	"militaryritual": {
+		"salt": 1544959742,
+		"separation": 23,
+		"spacing": 26
+	},
+	"psycho_house": {
+		"salt": 1196528117,
+		"separation": 20,
+		"spacing": 25
+	},
+	"villagertree": {
+		"salt": 864383851,
+		"separation": 12,
+		"spacing": 17
+	},
+	"voodoo_sanctum": {
+		"salt": 826853847,
+		"separation": 13,
+		"spacing": 30
+	}
+}

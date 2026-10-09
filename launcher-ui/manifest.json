@@ -1,0 +1,164 @@
+{
+  "files": [
+    {
+      "path": "assets/css/launcher.css",
+      "size": 97449,
+      "md5": "55ae1c702e1006773584ea641f316558"
+    },
+    {
+      "path": "assets/images/backgrounds/0.jpg",
+      "size": 164047,
+      "md5": "1cb238ae885668ae3817f3fbf2a00da2"
+    },
+    {
+      "path": "assets/images/backgrounds/1.jpg",
+      "size": 184918,
+      "md5": "218305c01416065225f6a3cfce0f0f1d"
+    },
+    {
+      "path": "assets/images/backgrounds/2.jpg",
+      "size": 514058,
+      "md5": "c2955cdb457b73b14640b97cc8496e71"
+    },
+    {
+      "path": "assets/images/backgrounds/3.jpg",
+      "size": 1070390,
+      "md5": "9c84ae09797578b5e194dfededd6cc31"
+    },
+    {
+      "path": "assets/images/backgrounds/4.jpg",
+      "size": 273995,
+      "md5": "f0114e6076b0aba5b57ba336ccea27a8"
+    },
+    {
+      "path": "assets/images/backgrounds/5.jpg",
+      "size": 466433,
+      "md5": "6dfe1b5ab67c7fd8902b7dfae874b1e7"
+    },
+    {
+      "path": "assets/images/backgrounds/6.jpg",
+      "size": 2734467,
+      "md5": "8650ecd5cb88b5d091ce9678df34c7ae"
+    },
+    {
+      "path": "assets/images/backgrounds/7.jpg",
+      "size": 5235358,
+      "md5": "d5a40c4eff4e809c340f1ce5d9cff984"
+    },
+    {
+      "path": "assets/images/backgrounds/Capa Youtube.png",
+      "size": 598625,
+      "md5": "549607a9a18c084f89760f2581832bca"
+    },
+    {
+      "path": "assets/images/icons/arrow.svg",
+      "size": 304,
+      "md5": "a631b6edc28b38d51b728baa4f4da0cb"
+    },
+    {
+      "path": "assets/images/icons/discord.svg",
+      "size": 1203,
+      "md5": "739fed814dc8e0d4543f6e7d2b5f1ba9"
+    },
+    {
+      "path": "assets/images/icons/instagram.svg",
+      "size": 1874,
+      "md5": "603305a27537e5160f92383299473fe8"
+    },
+    {
+      "path": "assets/images/icons/link.svg",
+      "size": 885,
+      "md5": "4f62941989bda47e4b5d17f021381161"
+    },
+    {
+      "path": "assets/images/icons/lock.svg",
+      "size": 767,
+      "md5": "a9c31fddd8c897b8304098532f3f1ccf"
+    },
+    {
+      "path": "assets/images/icons/microsoft.svg",
+      "size": 309,
+      "md5": "749e080a5369a18438c7b79659889c7c"
+    },
+    {
+      "path": "assets/images/icons/mojang.svg",
+      "size": 668,
+      "md5": "151392398e0009c93acd0d1d14c95abd"
+    },
+    {
+      "path": "assets/images/icons/news.svg",
+      "size": 972,
+      "md5": "1f671f4af7e94b5e716c38573c7b9f0a"
+    },
+    {
+      "path": "assets/images/icons/profile.svg",
+      "size": 611,
+      "md5": "ca4beff0894a327e4c256463e92902c0"
+    },
+    {
+      "path": "assets/images/icons/settings.svg",
+      "size": 1289,
+      "md5": "0c5957d61ab8bee0e0f32828bcd574bc"
+    },
+    {
+      "path": "assets/images/icons/sevenstar.svg",
+      "size": 821,
+      "md5": "ca2aa1c7b2de955d92b6c55daa807d4b"
+    },
+    {
+      "path": "assets/images/icons/sevenstar_circle.svg",
+      "size": 945,
+      "md5": "9b370f08d8c46ebd767f4a88c2f2b8a0"
+    },
+    {
+      "path": "assets/images/icons/sevenstar_circle_extended.svg",
+      "size": 829,
+      "md5": "20c14cf18c517a9624331cf823208464"
+    },
+    {
+      "path": "assets/images/icons/sevenstar_circle_hole.svg",
+      "size": 1032,
+      "md5": "b25a6dec61a98884f5695985f6cff95b"
+    },
+    {
+      "path": "assets/images/icons/sevenstar_circle_hole_extended.svg",
+      "size": 915,
+      "md5": "cf20125f8b59c6c727f483ff6e486181"
+    },
+    {
+      "path": "assets/images/icons/sevenstar_extended.svg",
+      "size": 706,
+      "md5": "386f90f932a9a34a317edc4b6be4c8ef"
+    },
+    {
+      "path": "assets/images/icons/x.svg",
+      "size": 246,
+      "md5": "223f187536cb02c284f2ef921762f397"
+    },
+    {
+      "path": "assets/images/icons/youtube.svg",
+      "size": 663,
+      "md5": "933c71150346fffb4c998dee68bfa0d5"
+    },
+    {
+      "path": "assets/images/minecraft.icns",
+      "size": 120723,
+      "md5": "d5d4788f3a8a2b65a91d37bc55b5d128"
+    },
+    {
+      "path": "assets/images/Perfil Youtube.png",
+      "size": 19652,
+      "md5": "79b0257a73b6333cd889f711ec407287"
+    },
+    {
+      "path": "assets/lang/_custom.toml",
+      "size": 15318,
+      "md5": "fa3a8d37fd1498eafc96dc2a6bfc743e"
+    },
+    {
+      "path": "theme.json",
+      "size": 110,
+      "md5": "40c7b096039f19cce3629e74d978ec36"
+    }
+  ]
+}

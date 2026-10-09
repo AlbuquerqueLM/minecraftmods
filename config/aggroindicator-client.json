@@ -1,0 +1,18 @@
+{
+  "renderAlertIcon": true,
+  "scaleWithMobSize": true,
+  "mobBlacklist": [
+    "minecraft:bat"
+  ],
+  "treatBlacklistAsWhitelist": false,
+  "alertIconStyleComment": "# A value between 0 and 2 (inclusive). Icon styles in corresponding order: Classic, MGS and Block Bench. Can be replaced with a resource pack.",
+  "alertIconStyle": 0,
+  "renderRange": 24.0,
+  "xOffset": 0.0,
+  "yOffset": 10.0,
+  "alertIconSize": 30.0,
+  "alertColorHex": "0xFF6666",
+  "hideAlertAfterTicks": 0,
+  "playAlertSound": false,
+  "alertSoundCooldownSeconds": 15.0
+}

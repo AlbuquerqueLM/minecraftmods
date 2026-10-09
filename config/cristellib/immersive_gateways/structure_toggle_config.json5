@@ -1,0 +1,49 @@
+{
+	"portals": {
+		"badlands": {
+			"0": true,
+			"1": true,
+			"2": true
+		},
+		"cherry_grove": {
+			"0": true,
+			"1": true,
+			"2": true
+		},
+		"desert": {
+			"0": true,
+			"1": true
+		},
+		"ice": {
+			"0": true,
+			"1": true
+		},
+		"jungle": {
+			"0": true,
+			"1": true,
+			"2": true
+		},
+		"mangrove_swamp": {
+			"0": true,
+			"1": true,
+			"2": true
+		},
+		"mountain": {
+			"0": true,
+			"1": true
+		},
+		"mushroom": {
+			"0": true,
+			"1": true,
+			"2": true
+		},
+		"plains": {
+			"0": true,
+			"1": true,
+			"2": true
+		},
+		"swamp": {
+			"0": true
+		}
+	}
+}
