@@ -2,8 +2,8 @@
   "files": [
     {
       "path": "assets/css/launcher.css",
-      "size": 107734,
-      "md5": "89252fa6c5f695980f6f19dc953e7398"
+      "size": 108814,
+      "md5": "f387041c37dee212a9aea4a8fae20882"
     },
     {
       "path": "assets/images/backgrounds/0.jpg",
@@ -159,6 +159,11 @@
       "path": "assets/images/Perfil Youtube.png",
       "size": 19652,
       "md5": "79b0257a73b6333cd889f711ec407287"
+    },
+    {
+      "path": "assets/images/side-mine.ico",
+      "size": 38941,
+      "md5": "6ec2572952f5fe412d66fc86e9e8f7b4"
     },
     {
       "path": "assets/lang/_custom.toml",

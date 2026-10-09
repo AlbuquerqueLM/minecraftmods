@@ -138,6 +138,9 @@ function applyRemoteUi(){
 
 function registerRemoteProtocol(){
     const { protocol, net } = require('electron')
+    if(typeof protocol.isProtocolHandled === 'function' && protocol.isProtocolHandled('sidemine')){
+        return
+    }
     protocol.handle('sidemine', (request) => {
         const root = path.resolve(remoteUiDir())
         let relative = decodeURIComponent(new URL(request.url).pathname)

@@ -1164,7 +1164,7 @@ function setPlayButtonMode(needsUpdate){
     const force = document.getElementById('tlForceUpdate').checked
     const update = needsUpdate || force
     button.dataset.mode = update ? 'update' : 'play'
-    button.textContent = update ? 'Atualizar e Jogar' : 'Jogar'
+    button.textContent = 'JOGAR'
 }
 
 async function refreshPlayState(){
@@ -1294,22 +1294,8 @@ document.getElementById('tlHelp').addEventListener('click', async () => {
     switchView(getCurrentView(), VIEWS.settings)
 })
 
-document.getElementById('tlSkin').addEventListener('click', async () => {
-    const path = require('path')
-    const fs = require('fs-extra')
-    const { dialog } = require('@electron/remote')
-    const picked = await dialog.showOpenDialog({
-        title: 'Instalar skin',
-        filters: [{ name: 'PNG', extensions: ['png'] }],
-        properties: ['openFile']
-    })
-    if(picked.canceled || picked.filePaths.length === 0){
-        return
-    }
-    const serverId = ConfigManager.getSelectedServer() || 'side-mine-server'
-    const dest = path.join(ConfigManager.getInstanceDirectory(), serverId, 'skins', path.basename(picked.filePaths[0]))
-    await fs.copy(picked.filePaths[0], dest)
-    setOverlayContent('Skin', 'A skin foi copiada para a pasta skins da instância.', 'OK')
+document.getElementById('tlSkin').addEventListener('click', () => {
+    setOverlayContent('Como trocar de Skin', 'Dentro do nosso servidor há um mod chamado Skin Restorer, utilize o comando /skin e poderá utilizar qualquer skin que desejar!', 'OK')
     setOverlayHandler(() => toggleOverlay(false))
     toggleOverlay(true, true)
 })

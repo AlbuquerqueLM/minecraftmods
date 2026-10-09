@@ -7,8 +7,8 @@
     },
     {
       "path": "app/assets/css/launcher.css",
-      "size": 107734,
-      "md5": "89252fa6c5f695980f6f19dc953e7398"
+      "size": 108814,
+      "md5": "f387041c37dee212a9aea4a8fae20882"
     },
     {
       "path": "app/assets/distribution.json",
@@ -236,6 +236,11 @@
       "md5": "79b0257a73b6333cd889f711ec407287"
     },
     {
+      "path": "app/assets/images/side-mine.ico",
+      "size": 38941,
+      "md5": "6ec2572952f5fe412d66fc86e9e8f7b4"
+    },
+    {
       "path": "app/assets/js/authmanager.js",
       "size": 18038,
       "md5": "37fc173d28d2dad653db8d698b643ce9"
@@ -297,8 +302,8 @@
     },
     {
       "path": "app/assets/js/scripts/landing.js",
-      "size": 49890,
-      "md5": "86c0e3e8fd85191f02a8957a02d06c3c"
+      "size": 49312,
+      "md5": "c2aac756fd3bc73552a054d9bb93f086"
     },
     {
       "path": "app/assets/js/scripts/login.js",
@@ -347,8 +352,8 @@
     },
     {
       "path": "app/assets/js/uisync.js",
-      "size": 5304,
-      "md5": "97a0b70a2a55ce07715eeda58c050341"
+      "size": 5428,
+      "md5": "1491194d83d7d61f6baa247c3f219bb3"
     },
     {
       "path": "app/assets/lang/en_US.toml",
@@ -372,8 +377,8 @@
     },
     {
       "path": "app/landing.ejs",
-      "size": 5873,
-      "md5": "18a72327c4f6bf7f1eff959d67485bdc"
+      "size": 6051,
+      "md5": "3186129f100d39382602e451a5bce7ed"
     },
     {
       "path": "app/login.ejs",
@@ -407,8 +412,8 @@
     },
     {
       "path": "main.js",
-      "size": 8643,
-      "md5": "926a63d9a5d32655d3b8074cee6c6b89"
+      "size": 9521,
+      "md5": "8e5fba1a65107f4f97c8217b31e7b51a"
     }
   ]
 }

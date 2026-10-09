@@ -151,6 +151,7 @@ function createWindow() {
     win = new BrowserWindow({
         width: 980,
         height: 552,
+        show: true,
         icon: getPlatformIcon(),
         frame: false,
         webPreferences: {
@@ -162,13 +163,20 @@ function createWindow() {
     })
     require('@electron/remote/main').enable(win.webContents)
 
+    const backgroundsDir = path.join(__dirname, 'app', 'assets', 'images', 'backgrounds')
+    const backgroundCount = fs.existsSync(backgroundsDir) ? fs.readdirSync(backgroundsDir).length : 1
     const data = {
-        bkid: Math.floor((Math.random() * fs.readdirSync(path.join(__dirname, 'app', 'assets', 'images', 'backgrounds')).length)),
+        bkid: Math.floor(Math.random() * Math.max(1, backgroundCount)),
         lang: (str, placeHolders) => LangLoader.queryEJS(str, placeHolders)
     }
     Object.entries(data).forEach(([key, val]) => ejse.data(key, val))
 
     win.loadURL(pathToFileURL(path.join(__dirname, 'app', 'app.ejs')).toString())
+    win.once('ready-to-show', () => {
+        win.show()
+        win.focus()
+    })
+    win.show()
 
     win.removeMenu()
 
@@ -240,19 +248,33 @@ function createMenu() {
 }
 
 function getPlatformIcon(){
-    const remoteIcon = path.join(app.getPath('userData'), 'remote-ui', 'assets', 'images', 'Perfil Youtube.png')
-    const downloadedIcon = path.join(__dirname, 'app', 'assets', 'images', 'Perfil Youtube.png')
-    if(fs.existsSync(downloadedIcon)){
-        return downloadedIcon
-    }
-    if(fs.existsSync(remoteIcon)){
-        return remoteIcon
-    }
-    return downloadedIcon
+    const candidates = [
+        path.join(__dirname, 'app', 'assets', 'images', 'side-mine.ico'),
+        path.join(__dirname, 'build', 'icon.ico'),
+        path.join(__dirname, 'app', 'assets', 'images', 'Perfil Youtube.png'),
+        path.join(app.getPath('userData'), 'remote-ui', 'assets', 'images', 'Perfil Youtube.png')
+    ]
+    return candidates.find((file) => fs.existsSync(file)) || candidates[2]
 }
 
 async function start(){
+    if(!ejse.listening()){
+        ejse.listen()
+    }
     await syncLauncherUi()
+    if(!app.isPackaged){
+        const remoteRoot = path.join(app.getPath('userData'), 'remote-ui')
+        const localUi = [
+            ['app', 'assets', 'css', 'launcher.css'],
+            ['app', 'assets', 'lang', '_custom.toml']
+        ]
+        for(const parts of localUi){
+            const from = path.join(__dirname, ...parts)
+            const to = path.join(remoteRoot, ...parts.slice(1))
+            fs.mkdirSync(path.dirname(to), { recursive: true })
+            fs.copyFileSync(from, to)
+        }
+    }
     LangLoader.setupLanguage()
     registerRemoteProtocol()
     createWindow()

@@ -16,7 +16,7 @@
             </button>
             <button class="tl-side-btn" id="tlSkin" type="button">
                 <span class="tl-ico" aria-hidden="true">☺</span>
-                <span>INSTALAR SKIN</span>
+                <span>Como trocar de Skin</span>
             </button>
             <button class="tl-side-btn" id="tlCapes" type="button">
                 <span class="tl-ico" aria-hidden="true">◆</span>
@@ -33,14 +33,15 @@
             <button class="tl-discord" id="tlDiscord" type="button" data-url="<%- lang('landing.mediaDiscordURL') %>">
                 <img src="assets/images/introgif.gif" alt="">
                 <span class="tl-discord-copy">
-                    <strong>COME JOIN US!</strong>
-                    <small>Discord do Sidequest</small>
+                    <strong>Discord</strong>
+                    <small><%- lang('landing.mediaDiscordURL') %></small>
                 </span>
             </button>
         </aside>
     </div>
     <footer class="tl-footer">
         <div class="tl-nick">
+            <label class="tl-field-label" for="tlNick">Nome de usuário</label>
             <input id="tlNick" type="text" maxlength="16" spellcheck="false" autocomplete="off" placeholder="Nickname">
             <div class="tl-checks">
                 <label><input id="tlAccounts" type="checkbox"> Contas</label>
@@ -52,17 +53,19 @@
                 <button id="avatarOverlay" type="button"></button>
             </div>
         </div>
-        <div class="tl-version">
-            <img src="assets/images/Perfil%20Youtube.png" alt="">
-            <select id="tlVersion" aria-label="Versão"></select>
-            <button id="server_selection_button" class="tl-legacy" type="button"></button>
+        <div class="tl-options">
+            <div class="tl-version">
+                <img src="assets/images/Perfil%20Youtube.png" alt="">
+                <select id="tlVersion" aria-label="Versão"></select>
+                <button id="server_selection_button" class="tl-legacy" type="button"></button>
+            </div>
+            <button id="tlFolder" class="tl-icon-btn" type="button" title="Acessar pasta do jogo">Pasta</button>
+            <button id="tlReload" class="tl-icon-btn" type="button" title="Recarregar">⟳</button>
+            <button id="settingsMediaButton" class="tl-icon-btn" type="button" title="RAM, Java e pasta do jogo">Configurações</button>
         </div>
         <div class="tl-actions">
-            <button id="tlFolder" class="tl-icon-btn" type="button" title="Acessar pasta do jogo">📁</button>
-            <button id="tlReload" class="tl-icon-btn" type="button" title="Recarregar">⟳</button>
-            <button id="settingsMediaButton" class="tl-icon-btn" type="button" title="Configurações">⚙</button>
             <div id="launch_content">
-                <button id="launch_button" type="button" data-mode="update">Atualizar e Jogar</button>
+                <button id="launch_button" type="button" data-mode="play">JOGAR</button>
             </div>
             <div id="launch_details">
                 <div id="launch_details_left">
