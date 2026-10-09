@@ -1,0 +1,16 @@
+<div id="loginOptionsContainer" style="display: none;">
+    <div id="loginOptionsContent">
+        <div class="loginOptionsMainContent">
+            <form id="loginNickForm">
+                <label id="loginNickLabel" for="loginNickField"><%- lang('loginOptions.nickLabel') %></label>
+                <input id="loginNickField" type="text" maxlength="16" spellcheck="false" autocomplete="off" placeholder="<%- lang('loginOptions.nickPlaceholder') %>">
+                <span id="loginNickError"></span>
+                <button id="loginNickButton" type="submit"><%- lang('loginOptions.nickButton') %></button>
+            </form>
+            <div id="loginOptionCancelContainer" style="display: none;">
+                <button id="loginOptionCancelButton" type="button"><%- lang('loginOptions.cancelButton') %></button>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/scripts/loginOptions.js"></script>
+</div>

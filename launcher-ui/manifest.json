@@ -2,8 +2,8 @@
   "files": [
     {
       "path": "assets/css/launcher.css",
-      "size": 97449,
-      "md5": "55ae1c702e1006773584ea641f316558"
+      "size": 107734,
+      "md5": "89252fa6c5f695980f6f19dc953e7398"
     },
     {
       "path": "assets/images/backgrounds/0.jpg",
@@ -49,6 +49,11 @@
       "path": "assets/images/backgrounds/Capa Youtube.png",
       "size": 598625,
       "md5": "549607a9a18c084f89760f2581832bca"
+    },
+    {
+      "path": "assets/images/Bannercomeço.png",
+      "size": 3329387,
+      "md5": "b2e2c476affb2e96dd6147b1a621c5cc"
     },
     {
       "path": "assets/images/icons/arrow.svg",
@@ -141,6 +146,11 @@
       "md5": "933c71150346fffb4c998dee68bfa0d5"
     },
     {
+      "path": "assets/images/introgif.gif",
+      "size": 101708,
+      "md5": "cbc053066b6912e9e27accf9c1179392"
+    },
+    {
       "path": "assets/images/minecraft.icns",
       "size": 120723,
       "md5": "d5d4788f3a8a2b65a91d37bc55b5d128"
@@ -152,8 +162,8 @@
     },
     {
       "path": "assets/lang/_custom.toml",
-      "size": 15318,
-      "md5": "fa3a8d37fd1498eafc96dc2a6bfc743e"
+      "size": 15346,
+      "md5": "5be9a91c9d04458c480761bd518231a8"
     },
     {
       "path": "theme.json",

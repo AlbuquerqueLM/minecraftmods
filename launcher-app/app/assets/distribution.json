@@ -1,0 +1,21 @@
+{
+    "version": "1.0.0",
+    "servers": [
+        {
+            "id": "side-mine-server",
+            "name": "Sidequest Server",
+            "description": "Servidor oficial do Sidequest RPG. Quests toda semana.",
+            "icon": "assets/images/Perfil%20Youtube.png",
+            "version": "1.0.0",
+            "address": "stamina-marriages.tun.ply.gg",
+            "minecraftVersion": "26.2",
+            "javaOptions": {
+                "supported": ">=25.x",
+                "suggestedMajor": 25
+            },
+            "mainServer": true,
+            "autoconnect": true,
+            "modules": []
+        }
+    ]
+}

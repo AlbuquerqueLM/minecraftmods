@@ -1,0 +1,414 @@
+{
+  "files": [
+    {
+      "path": "app/app.ejs",
+      "size": 2861,
+      "md5": "6cfe0126d6da6c33e83235ecd4c7eed4"
+    },
+    {
+      "path": "app/assets/css/launcher.css",
+      "size": 107734,
+      "md5": "89252fa6c5f695980f6f19dc953e7398"
+    },
+    {
+      "path": "app/assets/distribution.json",
+      "size": 651,
+      "md5": "e23e8d0f294222a0e232ca1f7bc22556"
+    },
+    {
+      "path": "app/assets/fonts/Avenir-Black.ttf",
+      "size": 91016,
+      "md5": "aa91c02d8430510b523d45a852f72593"
+    },
+    {
+      "path": "app/assets/fonts/Avenir-BlackOblique.ttf",
+      "size": 84604,
+      "md5": "f5c3bf9d050962ec0a93eb7ea9d3ffcb"
+    },
+    {
+      "path": "app/assets/fonts/Avenir-Book.ttf",
+      "size": 143212,
+      "md5": "2abe39dbdeead39c4bc4f484a550a7b7"
+    },
+    {
+      "path": "app/assets/fonts/Avenir-BookOblique.ttf",
+      "size": 150804,
+      "md5": "31fbfe28523917211176a837a4e57ff2"
+    },
+    {
+      "path": "app/assets/fonts/Avenir-Heavy.ttf",
+      "size": 134548,
+      "md5": "1e6ff980d506c612364ea213e3e1227c"
+    },
+    {
+      "path": "app/assets/fonts/Avenir-HeavyOblique.ttf",
+      "size": 60008,
+      "md5": "7652e0a2d0f59093398a5fcb7decce68"
+    },
+    {
+      "path": "app/assets/fonts/Avenir-Light.ttf",
+      "size": 85100,
+      "md5": "9336c835a563202d0bea8b5047ddf62c"
+    },
+    {
+      "path": "app/assets/fonts/Avenir-LightOblique.ttf",
+      "size": 73936,
+      "md5": "925cc66573b54918b9b939f507fbe7e2"
+    },
+    {
+      "path": "app/assets/fonts/Avenir-Medium.ttf",
+      "size": 138892,
+      "md5": "0fe148f8c6ea39c28a69d7d719b25df5"
+    },
+    {
+      "path": "app/assets/fonts/Avenir-MediumOblique.ttf",
+      "size": 129120,
+      "md5": "3ef2e1d4a64800a4301455d24f124b6b"
+    },
+    {
+      "path": "app/assets/fonts/Avenir-Oblique.ttf",
+      "size": 67580,
+      "md5": "83e89deb08386f4e7486bf2e01ab61c1"
+    },
+    {
+      "path": "app/assets/fonts/Avenir-Roman.ttf",
+      "size": 101228,
+      "md5": "7f9734301cda9aacab684b863c6d0983"
+    },
+    {
+      "path": "app/assets/fonts/ringbearer.ttf",
+      "size": 107280,
+      "md5": "bec1dc061960782df16e73f9881c9829"
+    },
+    {
+      "path": "app/assets/images/backgrounds/0.jpg",
+      "size": 164047,
+      "md5": "1cb238ae885668ae3817f3fbf2a00da2"
+    },
+    {
+      "path": "app/assets/images/backgrounds/1.jpg",
+      "size": 184918,
+      "md5": "218305c01416065225f6a3cfce0f0f1d"
+    },
+    {
+      "path": "app/assets/images/backgrounds/2.jpg",
+      "size": 514058,
+      "md5": "c2955cdb457b73b14640b97cc8496e71"
+    },
+    {
+      "path": "app/assets/images/backgrounds/3.jpg",
+      "size": 1070390,
+      "md5": "9c84ae09797578b5e194dfededd6cc31"
+    },
+    {
+      "path": "app/assets/images/backgrounds/4.jpg",
+      "size": 273995,
+      "md5": "f0114e6076b0aba5b57ba336ccea27a8"
+    },
+    {
+      "path": "app/assets/images/backgrounds/5.jpg",
+      "size": 466433,
+      "md5": "6dfe1b5ab67c7fd8902b7dfae874b1e7"
+    },
+    {
+      "path": "app/assets/images/backgrounds/6.jpg",
+      "size": 2734467,
+      "md5": "8650ecd5cb88b5d091ce9678df34c7ae"
+    },
+    {
+      "path": "app/assets/images/backgrounds/7.jpg",
+      "size": 5235358,
+      "md5": "d5a40c4eff4e809c340f1ce5d9cff984"
+    },
+    {
+      "path": "app/assets/images/backgrounds/Capa Youtube.png",
+      "size": 598625,
+      "md5": "549607a9a18c084f89760f2581832bca"
+    },
+    {
+      "path": "app/assets/images/Bannercomeço.png",
+      "size": 3329387,
+      "md5": "b2e2c476affb2e96dd6147b1a621c5cc"
+    },
+    {
+      "path": "app/assets/images/icons/arrow.svg",
+      "size": 304,
+      "md5": "a631b6edc28b38d51b728baa4f4da0cb"
+    },
+    {
+      "path": "app/assets/images/icons/discord.svg",
+      "size": 1203,
+      "md5": "739fed814dc8e0d4543f6e7d2b5f1ba9"
+    },
+    {
+      "path": "app/assets/images/icons/instagram.svg",
+      "size": 1874,
+      "md5": "603305a27537e5160f92383299473fe8"
+    },
+    {
+      "path": "app/assets/images/icons/link.svg",
+      "size": 885,
+      "md5": "4f62941989bda47e4b5d17f021381161"
+    },
+    {
+      "path": "app/assets/images/icons/lock.svg",
+      "size": 767,
+      "md5": "a9c31fddd8c897b8304098532f3f1ccf"
+    },
+    {
+      "path": "app/assets/images/icons/microsoft.svg",
+      "size": 309,
+      "md5": "749e080a5369a18438c7b79659889c7c"
+    },
+    {
+      "path": "app/assets/images/icons/mojang.svg",
+      "size": 668,
+      "md5": "151392398e0009c93acd0d1d14c95abd"
+    },
+    {
+      "path": "app/assets/images/icons/news.svg",
+      "size": 972,
+      "md5": "1f671f4af7e94b5e716c38573c7b9f0a"
+    },
+    {
+      "path": "app/assets/images/icons/profile.svg",
+      "size": 611,
+      "md5": "ca4beff0894a327e4c256463e92902c0"
+    },
+    {
+      "path": "app/assets/images/icons/settings.svg",
+      "size": 1289,
+      "md5": "0c5957d61ab8bee0e0f32828bcd574bc"
+    },
+    {
+      "path": "app/assets/images/icons/sevenstar.svg",
+      "size": 821,
+      "md5": "ca2aa1c7b2de955d92b6c55daa807d4b"
+    },
+    {
+      "path": "app/assets/images/icons/sevenstar_circle.svg",
+      "size": 945,
+      "md5": "9b370f08d8c46ebd767f4a88c2f2b8a0"
+    },
+    {
+      "path": "app/assets/images/icons/sevenstar_circle_extended.svg",
+      "size": 829,
+      "md5": "20c14cf18c517a9624331cf823208464"
+    },
+    {
+      "path": "app/assets/images/icons/sevenstar_circle_hole.svg",
+      "size": 1032,
+      "md5": "b25a6dec61a98884f5695985f6cff95b"
+    },
+    {
+      "path": "app/assets/images/icons/sevenstar_circle_hole_extended.svg",
+      "size": 915,
+      "md5": "cf20125f8b59c6c727f483ff6e486181"
+    },
+    {
+      "path": "app/assets/images/icons/sevenstar_extended.svg",
+      "size": 706,
+      "md5": "386f90f932a9a34a317edc4b6be4c8ef"
+    },
+    {
+      "path": "app/assets/images/icons/x.svg",
+      "size": 246,
+      "md5": "223f187536cb02c284f2ef921762f397"
+    },
+    {
+      "path": "app/assets/images/icons/youtube.svg",
+      "size": 663,
+      "md5": "933c71150346fffb4c998dee68bfa0d5"
+    },
+    {
+      "path": "app/assets/images/introgif.gif",
+      "size": 101708,
+      "md5": "cbc053066b6912e9e27accf9c1179392"
+    },
+    {
+      "path": "app/assets/images/minecraft.icns",
+      "size": 120723,
+      "md5": "d5d4788f3a8a2b65a91d37bc55b5d128"
+    },
+    {
+      "path": "app/assets/images/Perfil Youtube.png",
+      "size": 19652,
+      "md5": "79b0257a73b6333cd889f711ec407287"
+    },
+    {
+      "path": "app/assets/js/authmanager.js",
+      "size": 18038,
+      "md5": "37fc173d28d2dad653db8d698b643ce9"
+    },
+    {
+      "path": "app/assets/js/clientstandard.js",
+      "size": 4894,
+      "md5": "abe369fc5ed85880dc3d89974c9d3d74"
+    },
+    {
+      "path": "app/assets/js/configmanager.js",
+      "size": 27852,
+      "md5": "9371f2d55e91cd81402f1eb70d9296ca"
+    },
+    {
+      "path": "app/assets/js/discordwrapper.js",
+      "size": 1566,
+      "md5": "be4038b15a13a601b8f55c0d6a796dd3"
+    },
+    {
+      "path": "app/assets/js/distromanager.js",
+      "size": 534,
+      "md5": "d2ed8aaa6b4a98da54a30d8ab474072f"
+    },
+    {
+      "path": "app/assets/js/dropinmodutil.js",
+      "size": 7452,
+      "md5": "2da1e90b839c84c8ed9d7ceffa421003"
+    },
+    {
+      "path": "app/assets/js/ipcconstants.js",
+      "size": 822,
+      "md5": "23fe3cce4fd95365f385af03e4108cac"
+    },
+    {
+      "path": "app/assets/js/isdev.js",
+      "size": 255,
+      "md5": "e253ff8220fa6c9637202ac5c871720b"
+    },
+    {
+      "path": "app/assets/js/langloader.js",
+      "size": 2028,
+      "md5": "1f71f9b3dca0d7ff456bccb9b57e473f"
+    },
+    {
+      "path": "app/assets/js/neoforgelaunch.js",
+      "size": 19502,
+      "md5": "3bf3bdfb684ec00ed3de2a5c09a92a91"
+    },
+    {
+      "path": "app/assets/js/preloader.js",
+      "size": 3386,
+      "md5": "d71bfd07cc94ec7006d537ce9fb9d4d0"
+    },
+    {
+      "path": "app/assets/js/processbuilder.js",
+      "size": 35958,
+      "md5": "3d1d32a24b87fb05ffd0067a36b59c6b"
+    },
+    {
+      "path": "app/assets/js/scripts/landing.js",
+      "size": 49890,
+      "md5": "86c0e3e8fd85191f02a8957a02d06c3c"
+    },
+    {
+      "path": "app/assets/js/scripts/login.js",
+      "size": 7532,
+      "md5": "1f8c2985340347410a8e4fdb7ed1f500"
+    },
+    {
+      "path": "app/assets/js/scripts/loginOptions.js",
+      "size": 2234,
+      "md5": "8fe437c799b1f9ffa75ca3c581032628"
+    },
+    {
+      "path": "app/assets/js/scripts/overlay.js",
+      "size": 12435,
+      "md5": "3842f59c85794016b7456dd290e9373c"
+    },
+    {
+      "path": "app/assets/js/scripts/settings.js",
+      "size": 60541,
+      "md5": "2fe259289205e22ece4cf5f80f3ae5ad"
+    },
+    {
+      "path": "app/assets/js/scripts/uibinder.js",
+      "size": 17628,
+      "md5": "e5250f950849cf16b5763f58d56013c4"
+    },
+    {
+      "path": "app/assets/js/scripts/uicore.js",
+      "size": 8798,
+      "md5": "a2959352bfcd000ef730674792b20dd9"
+    },
+    {
+      "path": "app/assets/js/scripts/welcome.js",
+      "size": 345,
+      "md5": "e3583ce049934ce86ff77184d08b2054"
+    },
+    {
+      "path": "app/assets/js/serversdat.js",
+      "size": 8704,
+      "md5": "f6526650c64880b89be8095f22835693"
+    },
+    {
+      "path": "app/assets/js/serverstatus.js",
+      "size": 2042,
+      "md5": "4e2798b1ba69631e24248ac3d8b976bd"
+    },
+    {
+      "path": "app/assets/js/uisync.js",
+      "size": 5304,
+      "md5": "97a0b70a2a55ce07715eeda58c050341"
+    },
+    {
+      "path": "app/assets/lang/en_US.toml",
+      "size": 15907,
+      "md5": "d6f7630979d2ca92a443b0729ce0540e"
+    },
+    {
+      "path": "app/assets/lang/_custom.toml",
+      "size": 15346,
+      "md5": "5be9a91c9d04458c480761bd518231a8"
+    },
+    {
+      "path": "app/assets/neoforge/NeoForge 26.2.json",
+      "size": 78535,
+      "md5": "fddb35332e3733d7300bbf764b0c3653"
+    },
+    {
+      "path": "app/frame.ejs",
+      "size": 2156,
+      "md5": "640c3d1aa7d3e6c30877680af81b4fc4"
+    },
+    {
+      "path": "app/landing.ejs",
+      "size": 5873,
+      "md5": "18a72327c4f6bf7f1eff959d67485bdc"
+    },
+    {
+      "path": "app/login.ejs",
+      "size": 3948,
+      "md5": "c5ab7a0323f1c50a1207ee7f875543e9"
+    },
+    {
+      "path": "app/loginOptions.ejs",
+      "size": 951,
+      "md5": "5252f440fd5efcbfa6621f786bb526a3"
+    },
+    {
+      "path": "app/overlay.ejs",
+      "size": 2234,
+      "md5": "81f7d328560afb020cd6e3692b22b6c6"
+    },
+    {
+      "path": "app/settings.ejs",
+      "size": 34243,
+      "md5": "c2aaf19578535f48b93bfd5734d31592"
+    },
+    {
+      "path": "app/waiting.ejs",
+      "size": 259,
+      "md5": "ae3d8ed395655662759b607da34c11f5"
+    },
+    {
+      "path": "app/welcome.ejs",
+      "size": 1157,
+      "md5": "d7954565c7898b0f2fe188d1abcc6570"
+    },
+    {
+      "path": "main.js",
+      "size": 8643,
+      "md5": "926a63d9a5d32655d3b8074cee6c6b89"
+    }
+  ]
+}

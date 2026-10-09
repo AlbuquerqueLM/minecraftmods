@@ -70,8 +70,36 @@ const uiManifest = {
 }
 fs.writeFileSync(path.join(uiRoot, 'manifest.json'), JSON.stringify(uiManifest, null, 2))
 
-const contentRoots = ['mods', 'config', 'data']
 const skipped = []
+const launcherRoot = path.join(root, '..', 'HeliosLauncher')
+const codeRoot = path.join(root, 'launcher-app')
+fs.rmSync(codeRoot, { recursive: true, force: true })
+fs.mkdirSync(codeRoot, { recursive: true })
+fs.copyFileSync(path.join(launcherRoot, 'main.js'), path.join(codeRoot, 'main.js'))
+copyTree(path.join(launcherRoot, 'app'), path.join(codeRoot, 'app'))
+const codeFiles = walk(codeRoot, '').filter((file) => {
+    if(file.rel === 'manifest.json'){
+        return false
+    }
+    const size = fs.statSync(file.full).size
+    if(size > maxBytes){
+        skipped.push('launcher-app/' + file.rel + ' (' + Math.round(size / 1024 / 1024) + ' MB)')
+        fs.rmSync(file.full, { force: true })
+        return false
+    }
+    return true
+})
+const codeManifest = {
+    files: codeFiles.map((file) => ({
+        path: file.rel,
+        size: fs.statSync(file.full).size,
+        md5: md5(file.full)
+    }))
+}
+fs.writeFileSync(path.join(codeRoot, 'manifest.json'), JSON.stringify(codeManifest, null, 2))
+console.log('Launcher code files:', codeManifest.files.length)
+
+const contentRoots = ['mods', 'config', 'data']
 const modules = []
 for(const folder of contentRoots){
     for(const file of walk(path.join(root, folder), folder)){

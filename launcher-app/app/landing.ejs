@@ -1,0 +1,115 @@
+<div id="landingContainer" class="tl" style="display: none;">
+    <div class="tl-stage">
+        <section class="tl-news" aria-label="Notícias">
+            <div class="news-scroll-container">
+                <img src="assets/images/Bannercome%C3%A7o.png" class="news-giant-image" alt="Side-Mine News">
+            </div>
+        </section>
+        <aside class="tl-side">
+            <button class="tl-side-btn" id="tlHowToPlay" type="button">
+                <span class="tl-ico" aria-hidden="true">?</span>
+                <span>COMO JOGAR?</span>
+            </button>
+            <button class="tl-side-btn" id="tlHelp" type="button">
+                <span class="tl-ico" aria-hidden="true">i</span>
+                <span>AJUDA</span>
+            </button>
+            <button class="tl-side-btn" id="tlSkin" type="button">
+                <span class="tl-ico" aria-hidden="true">☺</span>
+                <span>INSTALAR SKIN</span>
+            </button>
+            <button class="tl-side-btn" id="tlCapes" type="button">
+                <span class="tl-ico" aria-hidden="true">◆</span>
+                <span>CAPAS ANIMADAS</span>
+            </button>
+            <a class="tl-side-btn tl-side-orange" id="tlYouTube" href="<%- lang('landing.mediaYouTubeURL') %>">
+                <span class="tl-ico" aria-hidden="true">▶</span>
+                <span>YOUTUBE</span>
+            </a>
+            <a class="tl-side-btn tl-side-blue" id="tlInstagram" href="<%- lang('landing.mediaInstagramURL') %>">
+                <span class="tl-ico" aria-hidden="true">◎</span>
+                <span>INSTAGRAM</span>
+            </a>
+            <button class="tl-discord" id="tlDiscord" type="button" data-url="<%- lang('landing.mediaDiscordURL') %>">
+                <img src="assets/images/introgif.gif" alt="">
+                <span class="tl-discord-copy">
+                    <strong>COME JOIN US!</strong>
+                    <small>Discord do Sidequest</small>
+                </span>
+            </button>
+        </aside>
+    </div>
+    <footer class="tl-footer">
+        <div class="tl-nick">
+            <input id="tlNick" type="text" maxlength="16" spellcheck="false" autocomplete="off" placeholder="Nickname">
+            <div class="tl-checks">
+                <label><input id="tlAccounts" type="checkbox"> Contas</label>
+                <label><input id="tlForceUpdate" type="checkbox"> Forçar atualização</label>
+            </div>
+            <div id="tlAccountList" hidden></div>
+            <span id="user_text" class="tl-legacy"></span>
+            <div id="avatarContainer" class="tl-legacy">
+                <button id="avatarOverlay" type="button"></button>
+            </div>
+        </div>
+        <div class="tl-version">
+            <img src="assets/images/Perfil%20Youtube.png" alt="">
+            <select id="tlVersion" aria-label="Versão"></select>
+            <button id="server_selection_button" class="tl-legacy" type="button"></button>
+        </div>
+        <div class="tl-actions">
+            <button id="tlFolder" class="tl-icon-btn" type="button" title="Acessar pasta do jogo">📁</button>
+            <button id="tlReload" class="tl-icon-btn" type="button" title="Recarregar">⟳</button>
+            <button id="settingsMediaButton" class="tl-icon-btn" type="button" title="Configurações">⚙</button>
+            <div id="launch_content">
+                <button id="launch_button" type="button" data-mode="update">Atualizar e Jogar</button>
+            </div>
+            <div id="launch_details">
+                <div id="launch_details_left">
+                    <span id="launch_progress_label">0%</span>
+                </div>
+                <div id="launch_details_right">
+                    <progress id="launch_progress" value="0" max="100"></progress>
+                    <span id="launch_details_text"><%- lang('landing.launchDetails') %></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="tl-legacy" aria-hidden="true">
+        <span id="landingPlayerLabel"></span>
+        <span id="player_count"></span>
+        <span id="mojang_status_icon"></span>
+        <div id="mojangStatusTooltipTitle"></div>
+        <div id="mojangStatusEssentialContainer"></div>
+        <div id="mojangStatusNETitle"></div>
+        <div id="mojangStatusNonEssentialContainer"></div>
+        <div id="newsContainer">
+            <div id="newsContent" article="-1" style="display: none;">
+                <div id="newsStatusContainer">
+                    <a id="newsArticleTitle" href="#">Sidequest</a>
+                    <span id="newsArticleDate"></span>
+                    <span id="newsArticleAuthor"></span>
+                    <a href="#" id="newsArticleComments"></a>
+                    <span id="newsNavigationStatus"></span>
+                    <button id="newsNavigateLeft" type="button"></button>
+                    <button id="newsNavigateRight" type="button"></button>
+                    <div id="newsArticleContentScrollable"></div>
+                </div>
+            </div>
+            <div id="newsErrorContainer">
+                <div id="newsErrorLoading">
+                    <span id="nELoadSpan"></span>
+                </div>
+                <div id="newsErrorFailed" style="display: none;">
+                    <button id="newsErrorRetry" type="button"></button>
+                </div>
+                <div id="newsErrorNone" style="display: none;"></div>
+            </div>
+        </div>
+        <button id="newsButton" type="button">
+            <div id="newsButtonAlert" style="display: none;"></div>
+            <span id="newsButtonText"></span>
+        </button>
+    </div>
+    <script src="./assets/js/scripts/landing.js"></script>
+</div>
