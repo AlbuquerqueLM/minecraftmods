@@ -310,6 +310,26 @@ function showLaunchFailure(title, desc){
     toggleLaunchArea(false)
 }
 
+function describeLaunchError(err){
+    const bits = []
+    if(typeof err === 'string'){
+        bits.push(err)
+    } else if(err){
+        if(err.displayable){
+            bits.push(String(err.displayable))
+        }
+        if(err.message && err.message !== err.displayable){
+            bits.push(String(err.message))
+        }
+        const url = err.url || err.requestUrl || (err.request && err.request.requestUrl)
+        if(url && !bits.some((bit) => bit.includes(String(url)))){
+            bits.push(String(url))
+        }
+    }
+    const text = bits.filter(Boolean).join('\n')
+    return text || Lang.queryJS('landing.dlAsync.seeConsoleForDetails')
+}
+
 /* System (Java) Scan */
 
 /**
@@ -512,16 +532,32 @@ async function dlAsync(login = true) {
         loggerLaunchSuite.error('Error during launch', err)
         showLaunchFailure(Lang.queryJS('landing.dlAsync.errorDuringLaunchTitle'), err.message || Lang.queryJS('landing.dlAsync.errorDuringLaunchText'))
     })
+    const loaderTypes = ['ForgeHosted', 'Forge', 'Fabric']
+    const hasClassicLoader = (serv.modules || []).some((module) => loaderTypes.includes(module.rawModule.type))
+    let acceptRepairExit = false
+
     fullRepairModule.childProcess.on('close', (code, _signal) => {
-        if(code !== 0){
+        if(code !== 0 && !acceptRepairExit){
             loggerLaunchSuite.error(`Full Repair Module exited with code ${code}, assuming error.`)
             showLaunchFailure(Lang.queryJS('landing.dlAsync.errorDuringLaunchTitle'), Lang.queryJS('landing.dlAsync.seeConsoleForDetails'))
         }
     })
 
     loggerLaunchSuite.info('Validating files.')
+    setLaunchDetails('Copiando NeoForge, bibliotecas e mods deste computador')
+    const gameDir = require('path').join(ConfigManager.getInstanceDirectory(), serv.rawServer.id)
+    try {
+        const { injectKnownInstall } = require('./assets/js/neoforgelaunch')
+        await injectKnownInstall({
+            commonDir: ConfigManager.getCommonDirectory(),
+            gameDir
+        })
+    } catch(err) {
+        loggerLaunchSuite.error('Não foi possível copiar a instalação local.', err)
+    }
+
     setLaunchDetails(Lang.queryJS('landing.dlAsync.aligningClient'))
-    await syncClientStandard(require('path').join(ConfigManager.getInstanceDirectory(), serv.rawServer.id))
+    await syncClientStandard(gameDir)
 
     setLaunchDetails(Lang.queryJS('landing.dlAsync.validatingFileIntegrity'))
     let invalidFileCount = 0
@@ -532,7 +568,7 @@ async function dlAsync(login = true) {
         setLaunchPercentage(100)
     } catch (err) {
         loggerLaunchSuite.error('Error during file validation.')
-        showLaunchFailure(Lang.queryJS('landing.dlAsync.errorDuringFileVerificationTitle'), err.displayable || Lang.queryJS('landing.dlAsync.seeConsoleForDetails'))
+        showLaunchFailure(Lang.queryJS('landing.dlAsync.errorDuringFileVerificationTitle'), describeLaunchError(err))
         return
     }
     
@@ -547,8 +583,9 @@ async function dlAsync(login = true) {
             })
             setDownloadPercentage(100)
         } catch(err) {
-            loggerLaunchSuite.error('Error during file download.')
-            showLaunchFailure(Lang.queryJS('landing.dlAsync.errorDuringFileDownloadTitle'), err.displayable || Lang.queryJS('landing.dlAsync.seeConsoleForDetails'))
+            loggerLaunchSuite.error('Error during file download.', err)
+            acceptRepairExit = true
+            showLaunchFailure(Lang.queryJS('landing.dlAsync.errorDuringFileDownloadTitle'), describeLaunchError(err))
             return
         }
     } else {
@@ -562,9 +599,6 @@ async function dlAsync(login = true) {
 
     setLaunchDetails(Lang.queryJS('landing.dlAsync.preparingToLaunch'))
 
-    const loaderTypes = ['ForgeHosted', 'Forge', 'Fabric']
-    const hasClassicLoader = (serv.modules || []).some((module) => loaderTypes.includes(module.rawModule.type))
-
     if(login) {
         const authUser = ConfigManager.getSelectedAccount()
         loggerLaunchSuite.info(`Sending selected account (${authUser.displayName}) to ProcessBuilder.`)
@@ -572,10 +606,12 @@ async function dlAsync(login = true) {
         let pb = null
         if(!hasClassicLoader){
             const { launchNeoForge } = require('./assets/js/neoforgelaunch')
+            const { installAccountSkin } = require('./assets/js/elyskin')
             try {
+            await installAccountSkin(gameDir, authUser)
             proc = await launchNeoForge({
                 commonDir: ConfigManager.getCommonDirectory(),
-                gameDir: require('path').join(ConfigManager.getInstanceDirectory(), serv.rawServer.id),
+                gameDir,
                 javaExe: ConfigManager.getJavaExecutable(ConfigManager.getSelectedServer()),
                 authUser,
                 minRam: ConfigManager.getMinRAM(serv.rawServer.id),
@@ -1283,36 +1319,93 @@ document.getElementById('tlReload').addEventListener('click', async () => {
     reloadNews()
 })
 
-document.getElementById('tlHowToPlay').addEventListener('click', () => {
-    setOverlayContent('Como jogar?', 'Escreva o nick no rodapé e clique em Jogar. O Side-Mine entra no Sidequest Server.', 'OK')
-    setOverlayHandler(() => toggleOverlay(false))
-    toggleOverlay(true, true)
-})
-
 document.getElementById('tlHelp').addEventListener('click', async () => {
     await prepareSettings()
     switchView(getCurrentView(), VIEWS.settings)
 })
 
+let elybyReady = false
+let lastAppliedSkin = ''
+
+function currentGameDir(){
+    const serverId = ConfigManager.getSelectedServer() || 'side-mine-server'
+    return require('path').join(ConfigManager.getInstanceDirectory(), serverId)
+}
+
+function showSkinStatus(text){
+    const status = document.getElementById('tlSkinStatus')
+    if(status){
+        status.textContent = text
+    }
+}
+
+async function useElySkin(selection){
+    if(!selection || !selection.name || selection.name === lastAppliedSkin){
+        return
+    }
+    lastAppliedSkin = selection.name
+    const ready = await ensureFooterNick()
+    if(!ready){
+        lastAppliedSkin = ''
+        return
+    }
+    showSkinStatus('Baixando a skin de ' + selection.name + '...')
+    try {
+        const { applyCatalogSkin } = require('./assets/js/elyskin')
+        const skin = await applyCatalogSkin(selection, currentGameDir())
+        showSkinStatus('Skin aplicada: ' + skin.name + '. Ela entra no jogo ao clicar em JOGAR.')
+    } catch(err) {
+        lastAppliedSkin = ''
+        showSkinStatus('Não foi possível aplicar essa skin.')
+        setOverlayContent('Skin', err.message || 'Falha ao baixar a skin do Ely.by.', 'OK')
+        setOverlayHandler(() => toggleOverlay(false))
+        toggleOverlay(true, true)
+    }
+}
+
+function openSkinsView(){
+    document.getElementById('tlNews').classList.add('is-hidden')
+    const panel = document.getElementById('tlSkinsView')
+    panel.hidden = false
+    panel.classList.add('is-open')
+    const webview = document.getElementById('elyby-webview')
+    if(elybyReady){
+        return
+    }
+    const fs = require('fs')
+    const path = require('path')
+    const { pathToFileURL } = require('url')
+    let preload = path.join(__dirname, 'assets', 'js', 'elyby-preload.js')
+    const unpacked = preload.replace('app.asar', 'app.asar.unpacked')
+    if(fs.existsSync(unpacked)){
+        preload = unpacked
+    }
+    webview.setAttribute('preload', pathToFileURL(preload).href)
+    webview.addEventListener('ipc-message', (event) => {
+        if(event.channel === 'elyby-skin'){
+            useElySkin(event.args[0])
+        }
+    })
+    webview.addEventListener('did-navigate', (event) => {
+        const { skinFromUrl } = require('./assets/js/elyskin')
+        useElySkin(skinFromUrl(event.url))
+    })
+    webview.src = 'https://ely.by/skins'
+    elybyReady = true
+}
+
+function closeSkinsView(){
+    const panel = document.getElementById('tlSkinsView')
+    panel.classList.remove('is-open')
+    panel.hidden = true
+    document.getElementById('tlNews').classList.remove('is-hidden')
+}
+
 document.getElementById('tlSkin').addEventListener('click', () => {
-    setOverlayContent('Como trocar de Skin', 'Dentro do nosso servidor há um mod chamado Skin Restorer, utilize o comando /skin e poderá utilizar qualquer skin que desejar!', 'OK')
-    setOverlayHandler(() => toggleOverlay(false))
-    toggleOverlay(true, true)
+    openSkinsView()
 })
-
-document.getElementById('tlCapes').addEventListener('click', () => {
-    setOverlayContent('Capas animadas', 'Nick sem conta não usa capa da Microsoft. A capa do servidor aparece quando o jogo entra no Sidequest.', 'OK')
-    setOverlayHandler(() => toggleOverlay(false))
-    toggleOverlay(true, true)
-})
-
-document.getElementById('tlYouTube').addEventListener('click', (event) => {
-    event.preventDefault()
-    openExternalLink(event.currentTarget.getAttribute('href'))
-})
-document.getElementById('tlInstagram').addEventListener('click', (event) => {
-    event.preventDefault()
-    openExternalLink(event.currentTarget.getAttribute('href'))
+document.getElementById('tlSkinsBack').addEventListener('click', () => {
+    closeSkinsView()
 })
 document.getElementById('tlDiscord').addEventListener('click', () => {
     openExternalLink(document.getElementById('tlDiscord').dataset.url)

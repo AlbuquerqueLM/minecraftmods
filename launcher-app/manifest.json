@@ -7,8 +7,8 @@
     },
     {
       "path": "app/assets/css/launcher.css",
-      "size": 108814,
-      "md5": "f387041c37dee212a9aea4a8fae20882"
+      "size": 110056,
+      "md5": "b3db49bb07ed925c434a42d0cfc0e72b"
     },
     {
       "path": "app/assets/distribution.json",
@@ -271,6 +271,16 @@
       "md5": "2da1e90b839c84c8ed9d7ceffa421003"
     },
     {
+      "path": "app/assets/js/elyby-preload.js",
+      "size": 1946,
+      "md5": "f38bd772cfaa69527c5d002fc76a6caa"
+    },
+    {
+      "path": "app/assets/js/elyskin.js",
+      "size": 5371,
+      "md5": "33fee2b8dce5a192b9bd16d9b2e3256d"
+    },
+    {
       "path": "app/assets/js/ipcconstants.js",
       "size": 822,
       "md5": "23fe3cce4fd95365f385af03e4108cac"
@@ -287,8 +297,8 @@
     },
     {
       "path": "app/assets/js/neoforgelaunch.js",
-      "size": 19502,
-      "md5": "3bf3bdfb684ec00ed3de2a5c09a92a91"
+      "size": 22430,
+      "md5": "daf2ca79349440db1a12670ee0e95dfc"
     },
     {
       "path": "app/assets/js/preloader.js",
@@ -302,8 +312,8 @@
     },
     {
       "path": "app/assets/js/scripts/landing.js",
-      "size": 49312,
-      "md5": "c2aac756fd3bc73552a054d9bb93f086"
+      "size": 52058,
+      "md5": "ff3f7fd6308c6fab8d5b3c3e2b5256cb"
     },
     {
       "path": "app/assets/js/scripts/login.js",
@@ -377,8 +387,8 @@
     },
     {
       "path": "app/landing.ejs",
-      "size": 6051,
-      "md5": "3186129f100d39382602e451a5bce7ed"
+      "size": 5515,
+      "md5": "6c415f4e5141daf2d0907f531808f4cb"
     },
     {
       "path": "app/login.ejs",
@@ -412,8 +422,8 @@
     },
     {
       "path": "main.js",
-      "size": 9521,
-      "md5": "8e5fba1a65107f4f97c8217b31e7b51a"
+      "size": 9552,
+      "md5": "39add57820d05e57460491893382993b"
     }
   ]
 }

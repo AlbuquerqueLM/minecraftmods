@@ -1,40 +1,29 @@
 <div id="landingContainer" class="tl" style="display: none;">
     <div class="tl-stage">
-        <section class="tl-news" aria-label="Notícias">
+        <section class="tl-news" id="tlNews" aria-label="Notícias">
             <div class="news-scroll-container">
                 <img src="assets/images/Bannercome%C3%A7o.png" class="news-giant-image" alt="Side-Mine News">
             </div>
         </section>
+        <section class="skins-view-container" id="tlSkinsView" hidden>
+            <button id="tlSkinsBack" type="button">Voltar</button>
+            <p id="tlSkinStatus">Clique numa skin do Ely.by para usá-la neste nick.</p>
+            <webview id="elyby-webview" partition="persist:elyby"></webview>
+        </section>
         <aside class="tl-side">
-            <button class="tl-side-btn" id="tlHowToPlay" type="button">
-                <span class="tl-ico" aria-hidden="true">?</span>
-                <span>COMO JOGAR?</span>
-            </button>
             <button class="tl-side-btn" id="tlHelp" type="button">
                 <span class="tl-ico" aria-hidden="true">i</span>
                 <span>AJUDA</span>
             </button>
             <button class="tl-side-btn" id="tlSkin" type="button">
                 <span class="tl-ico" aria-hidden="true">☺</span>
-                <span>Como trocar de Skin</span>
+                <span>TROCAR DE SKIN</span>
             </button>
-            <button class="tl-side-btn" id="tlCapes" type="button">
-                <span class="tl-ico" aria-hidden="true">◆</span>
-                <span>CAPAS ANIMADAS</span>
-            </button>
-            <a class="tl-side-btn tl-side-orange" id="tlYouTube" href="<%- lang('landing.mediaYouTubeURL') %>">
-                <span class="tl-ico" aria-hidden="true">▶</span>
-                <span>YOUTUBE</span>
-            </a>
-            <a class="tl-side-btn tl-side-blue" id="tlInstagram" href="<%- lang('landing.mediaInstagramURL') %>">
-                <span class="tl-ico" aria-hidden="true">◎</span>
-                <span>INSTAGRAM</span>
-            </a>
             <button class="tl-discord" id="tlDiscord" type="button" data-url="<%- lang('landing.mediaDiscordURL') %>">
                 <img src="assets/images/introgif.gif" alt="">
                 <span class="tl-discord-copy">
                     <strong>Discord</strong>
-                    <small><%- lang('landing.mediaDiscordURL') %></small>
+                    <small>Venha fazer parte da nossa comunidade gamer e rpgista!</small>
                 </span>
             </button>
         </aside>

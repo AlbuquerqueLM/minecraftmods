@@ -357,12 +357,90 @@ async function resolveNeoForgeJar(librariesDir){
     throw new Error('NeoForge ' + NEOFORGE_VERSION + ' não está no Maven oficial.')
 }
 
+function playedGameDir(){
+    const appData = process.env.APPDATA || ''
+    return path.join(appData, '.minecraft', 'versions', 'NeoForge 26.2')
+}
+
+function templateClientDir(){
+    const packaged = path.join(process.resourcesPath || '', 'client-standard')
+    if(fs.existsSync(path.join(packaged, 'mods'))){
+        return packaged
+    }
+    return path.join(__dirname, '..', '..', '..', 'Padrão Client-Side')
+}
+
+async function copyMissingTree(source, dest){
+    if(!fs.existsSync(source)){
+        return 0
+    }
+    let copied = 0
+    const entries = await fs.readdir(source, { withFileTypes: true })
+    for(const entry of entries){
+        const from = path.join(source, entry.name)
+        const to = path.join(dest, entry.name)
+        if(entry.isDirectory()){
+            copied += await copyMissingTree(from, to)
+        } else if(entry.isFile() && !fs.existsSync(to)){
+            await fs.ensureDir(path.dirname(to))
+            await fs.copy(from, to, { overwrite: false, preserveTimestamps: true })
+            copied++
+        }
+    }
+    return copied
+}
+
+/**
+ * Copia bibliotecas, assets e mods que já existem neste computador
+ * para a pasta do Side-Mine. Arquivos que já estão lá não são substituídos.
+ */
+async function injectKnownInstall(options){
+    const commonDir = options.commonDir
+    const gameDir = options.gameDir
+    const appData = process.env.APPDATA || ''
+    const minecraft = path.join(appData, '.minecraft')
+    const played = playedGameDir()
+    const template = templateClientDir()
+    let copied = 0
+
+    copied += await copyMissingTree(path.join(minecraft, 'libraries'), path.join(commonDir, 'libraries'))
+    copied += await copyMissingTree(path.join(minecraft, 'assets'), path.join(commonDir, 'assets'))
+
+    const clientDest = path.join(commonDir, 'versions', '26.2', '26.2.jar')
+    for(const jar of [
+        path.join(played, 'NeoForge 26.2.jar'),
+        path.join(template, 'NeoForge 26.2.jar')
+    ]){
+        if(!fs.existsSync(clientDest) && fs.existsSync(jar)){
+            await fs.ensureDir(path.dirname(clientDest))
+            await fs.copy(jar, clientDest)
+            copied++
+        }
+    }
+
+    for(const root of [played, template]){
+        for(const folder of ['mods', 'config', 'data', 'defaultconfigs']){
+            copied += await copyMissingTree(path.join(root, folder), path.join(gameDir, folder))
+        }
+        const optionsFile = path.join(root, 'options.txt')
+        const optionsDest = path.join(gameDir, 'options.txt')
+        if(fs.existsSync(optionsFile) && !fs.existsSync(optionsDest)){
+            await fs.copy(optionsFile, optionsDest)
+            copied++
+        }
+    }
+
+    logger.info('Arquivos locais injetados:', copied)
+    return copied
+}
+
 /**
  * Downloads Mojang/NeoForge libraries and starts the NeoForge 26.2 client.
  *
  * @returns {import('child_process').ChildProcess} The Minecraft process.
  */
 async function launchNeoForge(options){
+    await injectKnownInstall({ commonDir: options.commonDir, gameDir: options.gameDir })
     const version = await fs.readJson(versionJsonPath())
     const commonDir = options.commonDir
     const gameDir = options.gameDir
@@ -527,4 +605,4 @@ async function launchNeoForge(options){
     return child
 }
 
-module.exports = { launchNeoForge }
+module.exports = { launchNeoForge, injectKnownInstall }
