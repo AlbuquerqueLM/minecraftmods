@@ -10,6 +10,7 @@ const path                  = require('path')
 
 const ConfigManager            = require('./configmanager')
 const { ensureSidequestServer } = require('./serversdat')
+const { withWarningScreenArgs: appendWarningScreenArgs } = require('./neoforgelaunch')
 
 const logger = LoggerUtil.getLogger('ProcessBuilder')
 
@@ -49,8 +50,8 @@ class ProcessBuilder {
         fs.ensureDirSync(this.gameDir)
         ensureSidequestServer(
             this.gameDir,
-            ConfigManager.getSidequestServerName(),
-            ConfigManager.getMultiplayerAddress()
+            this.server.rawServer.name,
+            this.server.rawServer.address
         )
         const tempNativePath = path.join(os.tmpdir(), ConfigManager.getTempNativeFolder(), crypto.pseudoRandomBytes(16).toString('hex'))
         process.throwDeprecation = true
@@ -85,12 +86,9 @@ class ProcessBuilder {
 
         const child = child_process.spawn(ConfigManager.getJavaExecutable(this.server.rawServer.id), args, {
             cwd: this.gameDir,
-            detached: ConfigManager.getLaunchDetached()
+            detached: true
         })
-
-        if(ConfigManager.getLaunchDetached()){
-            child.unref()
-        }
+        child.unref()
 
         child.stdout.setEncoding('utf8')
         child.stderr.setEncoding('utf8')
@@ -333,7 +331,7 @@ class ProcessBuilder {
 
     _processAutoConnectArg(args){
         if(ConfigManager.getAutoConnect() && this.server.rawServer.autoconnect){
-            const target = ConfigManager.parseMultiplayerAddress(ConfigManager.getMultiplayerAddress())
+            const target = ConfigManager.parseMultiplayerAddress(this.server.rawServer.address)
             if(mcVersionAtLeast('1.20', this.server.rawServer.minecraftVersion)){
                 args.push('--quickPlayMultiplayer')
                 args.push(`${target.hostname}:${target.port}`)
@@ -386,6 +384,7 @@ class ProcessBuilder {
         args.push('-Xms' + ConfigManager.getMinRAM(this.server.rawServer.id))
         args = args.concat(ConfigManager.getJVMOptions(this.server.rawServer.id))
         args.push('-Djava.library.path=' + tempNativePath)
+        args = appendWarningScreenArgs(args)
 
         // Main Java Class
         args.push(this.modManifest.mainClass)
@@ -436,6 +435,7 @@ class ProcessBuilder {
         args.push('-Xmx' + ConfigManager.getMaxRAM(this.server.rawServer.id))
         args.push('-Xms' + ConfigManager.getMinRAM(this.server.rawServer.id))
         args = args.concat(ConfigManager.getJVMOptions(this.server.rawServer.id))
+        args = appendWarningScreenArgs(args)
 
         // Main Java Class
         args.push(this.modManifest.mainClass)

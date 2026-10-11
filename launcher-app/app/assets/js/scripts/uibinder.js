@@ -63,12 +63,16 @@ function getCurrentView(){
 
 function syncSidequestServerList(){
     try {
-        const { ensureSidequestServer } = require('./assets/js/serversdat')
+        const { injectDynamicServer, resolveOfficialServer } = require('./assets/js/serversdat')
         const serverId = ConfigManager.getSelectedServer() || 'side-mine-server'
-        ensureSidequestServer(
+        const official = resolveOfficialServer(
+            path.join(ConfigManager.getLauncherDirectory(), 'distribution.json'),
+            serverId
+        )
+        injectDynamicServer(
             path.join(ConfigManager.getInstanceDirectory(), serverId),
-            ConfigManager.getSidequestServerName(),
-            ConfigManager.getMultiplayerAddress()
+            official.name,
+            official.address
         )
         const { syncClientStandard } = require('./assets/js/clientstandard')
         syncClientStandard(path.join(ConfigManager.getInstanceDirectory(), serverId)).catch(err => {

@@ -258,7 +258,24 @@ function getPlatformIcon(){
     return candidates.find((file) => fs.existsSync(file)) || candidates[2]
 }
 
+function checkLauncherUpdate(){
+    if(!app.isPackaged){
+        return
+    }
+    try {
+        const { autoUpdater } = require('electron-updater')
+        autoUpdater.autoDownload = true
+        autoUpdater.on('error', (err) => {
+            console.error('Atualização do launcher indisponível.', err && err.message ? err.message : err)
+        })
+        autoUpdater.checkForUpdatesAndNotify()
+    } catch(err) {
+        console.error('electron-updater indisponível.', err && err.message ? err.message : err)
+    }
+}
+
 async function start(){
+    checkLauncherUpdate()
     if(!ejse.listening()){
         ejse.listen()
     }

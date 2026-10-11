@@ -72,6 +72,17 @@
           }
         },
         {
+          "id": "mods/addonslib-neoforge-26.2-1.0.jar",
+          "name": "addonslib-neoforge-26.2-1.0.jar",
+          "type": "File",
+          "artifact": {
+            "size": 129659,
+            "MD5": "eda199343d8d2914a3036125aa646c8e",
+            "path": "mods/addonslib-neoforge-26.2-1.0.jar",
+            "url": "https://albuquerquelm.github.io/minecraftmods/mods/addonslib-neoforge-26.2-1.0.jar?v=eda199343d8d2914a3036125aa646c8e"
+          }
+        },
+        {
           "id": "mods/advancednetherite-neoforge-2.4.2-26.2.jar",
           "name": "advancednetherite-neoforge-2.4.2-26.2.jar",
           "type": "File",
@@ -322,6 +333,17 @@
             "MD5": "742ea3d196d3a22881858b77d3319075",
             "path": "mods/chunkloaders-1.2.9a-neoforge-mc26.2.jar",
             "url": "https://albuquerquelm.github.io/minecraftmods/mods/chunkloaders-1.2.9a-neoforge-mc26.2.jar?v=742ea3d196d3a22881858b77d3319075"
+          }
+        },
+        {
+          "id": "mods/Chunky-NeoForge-1.5.4.jar",
+          "name": "Chunky-NeoForge-1.5.4.jar",
+          "type": "File",
+          "artifact": {
+            "size": 353241,
+            "MD5": "41a1c0ea22580ec59cd1e14747676019",
+            "path": "mods/Chunky-NeoForge-1.5.4.jar",
+            "url": "https://albuquerquelm.github.io/minecraftmods/mods/Chunky-NeoForge-1.5.4.jar?v=41a1c0ea22580ec59cd1e14747676019"
           }
         },
         {
@@ -1092,6 +1114,160 @@
             "MD5": "dfcc7954ae67ac5ec07fde2665f558d6",
             "path": "mods/MagnumTorch-v26.2.0-mc26.2.x-NeoForge.jar",
             "url": "https://albuquerquelm.github.io/minecraftmods/mods/MagnumTorch-v26.2.0-mc26.2.x-NeoForge.jar?v=dfcc7954ae67ac5ec07fde2665f558d6"
+          }
+        },
+        {
+          "id": "mods/mcw-bridges-3.1.2-mc26.2neoforge.jar",
+          "name": "mcw-bridges-3.1.2-mc26.2neoforge.jar",
+          "type": "File",
+          "artifact": {
+            "size": 677014,
+            "MD5": "9aeb0febffe2d996c5ad0b81a406edd3",
+            "path": "mods/mcw-bridges-3.1.2-mc26.2neoforge.jar",
+            "url": "https://albuquerquelm.github.io/minecraftmods/mods/mcw-bridges-3.1.2-mc26.2neoforge.jar?v=9aeb0febffe2d996c5ad0b81a406edd3"
+          }
+        },
+        {
+          "id": "mods/mcw-doors-1.1.5-mc26.2neoforge.jar",
+          "name": "mcw-doors-1.1.5-mc26.2neoforge.jar",
+          "type": "File",
+          "artifact": {
+            "size": 1349249,
+            "MD5": "0932b14b5265d86784796393cfcf9a2c",
+            "path": "mods/mcw-doors-1.1.5-mc26.2neoforge.jar",
+            "url": "https://albuquerquelm.github.io/minecraftmods/mods/mcw-doors-1.1.5-mc26.2neoforge.jar?v=0932b14b5265d86784796393cfcf9a2c"
+          }
+        },
+        {
+          "id": "mods/mcw-fences-1.2.1-mc26.2neoforge.jar",
+          "name": "mcw-fences-1.2.1-mc26.2neoforge.jar",
+          "type": "File",
+          "artifact": {
+            "size": 697795,
+            "MD5": "8f60d757acd07c44eb1049b0be9b0084",
+            "path": "mods/mcw-fences-1.2.1-mc26.2neoforge.jar",
+            "url": "https://albuquerquelm.github.io/minecraftmods/mods/mcw-fences-1.2.1-mc26.2neoforge.jar?v=8f60d757acd07c44eb1049b0be9b0084"
+          }
+        },
+        {
+          "id": "mods/mcw-furniture-3.4.2-mc26.2neoforge.jar",
+          "name": "mcw-furniture-3.4.2-mc26.2neoforge.jar",
+          "type": "File",
+          "artifact": {
+            "size": 2271288,
+            "MD5": "bf114b3ed05e66d87c365ccfe4f49ac2",
+            "path": "mods/mcw-furniture-3.4.2-mc26.2neoforge.jar",
+            "url": "https://albuquerquelm.github.io/minecraftmods/mods/mcw-furniture-3.4.2-mc26.2neoforge.jar?v=bf114b3ed05e66d87c365ccfe4f49ac2"
+          }
+        },
+        {
+          "id": "mods/mcw-holidays-1.1.2-mc26.2neoforge.jar",
+          "name": "mcw-holidays-1.1.2-mc26.2neoforge.jar",
+          "type": "File",
+          "artifact": {
+            "size": 1035277,
+            "MD5": "1846a366525c7e3883410e14ca2d2363",
+            "path": "mods/mcw-holidays-1.1.2-mc26.2neoforge.jar",
+            "url": "https://albuquerquelm.github.io/minecraftmods/mods/mcw-holidays-1.1.2-mc26.2neoforge.jar?v=1846a366525c7e3883410e14ca2d2363"
+          }
+        },
+        {
+          "id": "mods/mcw-lights-1.1.5-mc26.2neoforge.jar",
+          "name": "mcw-lights-1.1.5-mc26.2neoforge.jar",
+          "type": "File",
+          "artifact": {
+            "size": 533696,
+            "MD5": "f08c5870261f48b50d7be031c540d710",
+            "path": "mods/mcw-lights-1.1.5-mc26.2neoforge.jar",
+            "url": "https://albuquerquelm.github.io/minecraftmods/mods/mcw-lights-1.1.5-mc26.2neoforge.jar?v=f08c5870261f48b50d7be031c540d710"
+          }
+        },
+        {
+          "id": "mods/mcw-paintings-1.1.0-mc26.2neoforge.jar",
+          "name": "mcw-paintings-1.1.0-mc26.2neoforge.jar",
+          "type": "File",
+          "artifact": {
+            "size": 194371,
+            "MD5": "9a8fc9dc4808ffd1e0bd1d309ee1e2fa",
+            "path": "mods/mcw-paintings-1.1.0-mc26.2neoforge.jar",
+            "url": "https://albuquerquelm.github.io/minecraftmods/mods/mcw-paintings-1.1.0-mc26.2neoforge.jar?v=9a8fc9dc4808ffd1e0bd1d309ee1e2fa"
+          }
+        },
+        {
+          "id": "mods/mcw-paths-1.1.1-mc26.2neoforge.jar",
+          "name": "mcw-paths-1.1.1-mc26.2neoforge.jar",
+          "type": "File",
+          "artifact": {
+            "size": 786006,
+            "MD5": "6fe46dc0082be63966648d8f92f2deb1",
+            "path": "mods/mcw-paths-1.1.1-mc26.2neoforge.jar",
+            "url": "https://albuquerquelm.github.io/minecraftmods/mods/mcw-paths-1.1.1-mc26.2neoforge.jar?v=6fe46dc0082be63966648d8f92f2deb1"
+          }
+        },
+        {
+          "id": "mods/mcw-roofs-2.3.3-mc26.2neoforge.jar",
+          "name": "mcw-roofs-2.3.3-mc26.2neoforge.jar",
+          "type": "File",
+          "artifact": {
+            "size": 1829796,
+            "MD5": "ef3e8d36b2a8b9b79d99a598f3f38c9d",
+            "path": "mods/mcw-roofs-2.3.3-mc26.2neoforge.jar",
+            "url": "https://albuquerquelm.github.io/minecraftmods/mods/mcw-roofs-2.3.3-mc26.2neoforge.jar?v=ef3e8d36b2a8b9b79d99a598f3f38c9d"
+          }
+        },
+        {
+          "id": "mods/mcw-stairs-1.0.2-mc26.2neoforge.jar",
+          "name": "mcw-stairs-1.0.2-mc26.2neoforge.jar",
+          "type": "File",
+          "artifact": {
+            "size": 548824,
+            "MD5": "1affb42a0770d9dc3ebd87fb0c1d91d5",
+            "path": "mods/mcw-stairs-1.0.2-mc26.2neoforge.jar",
+            "url": "https://albuquerquelm.github.io/minecraftmods/mods/mcw-stairs-1.0.2-mc26.2neoforge.jar?v=1affb42a0770d9dc3ebd87fb0c1d91d5"
+          }
+        },
+        {
+          "id": "mods/mcw-trapdoors-1.1.5-mc26.2neoforge.jar",
+          "name": "mcw-trapdoors-1.1.5-mc26.2neoforge.jar",
+          "type": "File",
+          "artifact": {
+            "size": 621940,
+            "MD5": "6ea2f6b3f3f12f8a128cd53e3e685fe3",
+            "path": "mods/mcw-trapdoors-1.1.5-mc26.2neoforge.jar",
+            "url": "https://albuquerquelm.github.io/minecraftmods/mods/mcw-trapdoors-1.1.5-mc26.2neoforge.jar?v=6ea2f6b3f3f12f8a128cd53e3e685fe3"
+          }
+        },
+        {
+          "id": "mods/mcw-windows-2.4.2-mc26.2neoforge.jar",
+          "name": "mcw-windows-2.4.2-mc26.2neoforge.jar",
+          "type": "File",
+          "artifact": {
+            "size": 1324783,
+            "MD5": "a253ac93e9ad481e1f9d297e0c020704",
+            "path": "mods/mcw-windows-2.4.2-mc26.2neoforge.jar",
+            "url": "https://albuquerquelm.github.io/minecraftmods/mods/mcw-windows-2.4.2-mc26.2neoforge.jar?v=a253ac93e9ad481e1f9d297e0c020704"
+          }
+        },
+        {
+          "id": "mods/mcwbetters-neoforge-26.2-1.6.jar",
+          "name": "mcwbetters-neoforge-26.2-1.6.jar",
+          "type": "File",
+          "artifact": {
+            "size": 11255483,
+            "MD5": "aba283bcb5fb0d8e55a18879dc139c4f",
+            "path": "mods/mcwbetters-neoforge-26.2-1.6.jar",
+            "url": "https://albuquerquelm.github.io/minecraftmods/mods/mcwbetters-neoforge-26.2-1.6.jar?v=aba283bcb5fb0d8e55a18879dc139c4f"
+          }
+        },
+        {
+          "id": "mods/mcwbiomesoplenty-neoforge-26.2-1.6.jar",
+          "name": "mcwbiomesoplenty-neoforge-26.2-1.6.jar",
+          "type": "File",
+          "artifact": {
+            "size": 7575820,
+            "MD5": "7de22d6f57c0739b505275559d27d24a",
+            "path": "mods/mcwbiomesoplenty-neoforge-26.2-1.6.jar",
+            "url": "https://albuquerquelm.github.io/minecraftmods/mods/mcwbiomesoplenty-neoforge-26.2-1.6.jar?v=7de22d6f57c0739b505275559d27d24a"
           }
         },
         {
@@ -8623,10 +8799,10 @@
           "name": "neoforge-client.toml",
           "type": "File",
           "artifact": {
-            "size": 1455,
-            "MD5": "a2b3d0add063f2cdc1fd437946c1e967",
+            "size": 1456,
+            "MD5": "c14015609f5e20ae457434d5cf5fe484",
             "path": "config/neoforge-client.toml",
-            "url": "https://albuquerquelm.github.io/minecraftmods/config/neoforge-client.toml?v=a2b3d0add063f2cdc1fd437946c1e967"
+            "url": "https://albuquerquelm.github.io/minecraftmods/config/neoforge-client.toml?v=c14015609f5e20ae457434d5cf5fe484"
           }
         },
         {

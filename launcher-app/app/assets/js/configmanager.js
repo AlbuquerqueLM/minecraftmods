@@ -7,7 +7,8 @@ const logger = LoggerUtil.getLogger('ConfigManager')
 
 const sysRoot = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 
-const dataPath = path.join(sysRoot, '.sidemine')
+const dataPath = path.join(sysRoot, '.side-mine')
+const legacyDataPath = path.join(sysRoot, '.sidemine')
 
 const launcherDir = require('@electron/remote').app.getPath('userData')
 
@@ -149,6 +150,15 @@ exports.load = function(){
         }
         if(doValidate){
             config = validateKeySet(DEFAULT_CONFIG, config)
+            const currentDir = config.settings.launcher.dataDirectory
+            if(currentDir && path.resolve(currentDir) === path.resolve(legacyDataPath) && !fs.existsSync(dataPath)){
+                try {
+                    fs.renameSync(legacyDataPath, dataPath)
+                    config.settings.launcher.dataDirectory = dataPath
+                } catch(err) {
+                    logger.error('Não foi possível mover .sidemine para .side-mine.', err)
+                }
+            }
             exports.save()
         }
     }

@@ -4,10 +4,39 @@ const http = require('http')
 const https = require('https')
 const os = require('os')
 const path = require('path')
+const zlib = require('zlib')
 const { spawn } = require('child_process')
 const { LoggerUtil } = require('helios-core')
 
 const logger = LoggerUtil.getLogger('NeoForgeLaunch')
+
+const WARNING_SCREEN_ARGS = [
+    '-Dforge.forceNoMainScreenWarnings=true',
+    '-Dneoforge.forceNoMainScreenWarnings=true'
+]
+const WARNING_SCREEN_PATTERN = /^-D(?:neo)?forge\.forceNoMainScreenWarnings(?:=|$)/
+
+function withWarningScreenArgs(jvmArgs){
+    const kept = (jvmArgs || []).filter((arg) => !WARNING_SCREEN_PATTERN.test(String(arg)))
+    return kept.concat(WARNING_SCREEN_ARGS)
+}
+
+function disableLoadWarningScreen(gameDir){
+    const file = path.join(gameDir, 'config', 'neoforge-client.toml')
+    fs.ensureDirSync(path.dirname(file))
+    const line = 'showLoadWarnings = false'
+    if(!fs.existsSync(file)){
+        fs.writeFileSync(file, '#When enabled, NeoForge will show any warnings that occurred during loading.\n' + line + '\n', 'utf8')
+        return
+    }
+    const text = fs.readFileSync(file, 'utf8')
+    const next = /showLoadWarnings\s*=/.test(text)
+        ? text.replace(/showLoadWarnings\s*=\s*\S+/g, line)
+        : text.replace(/\s*$/, '\n') + line + '\n'
+    if(next !== text){
+        fs.writeFileSync(file, next, 'utf8')
+    }
+}
 
 const NEOFORGE_VERSION = '26.2.0.88'
 const NEOFORGE_MAVEN = 'https://maven.neoforged.net/releases/'
@@ -215,6 +244,39 @@ async function mapPool(items, limit, worker){
     }))
 }
 
+function quickPlayAddress(address){
+    const raw = String(address || '').trim()
+    const match = raw.match(/^(.*):(\d{1,5})$/)
+    if(match && match[1] && Number(match[2]) > 0 && Number(match[2]) <= 65535){
+        return match[1] + ':' + Number(match[2])
+    }
+    return raw ? raw + ':25565' : ''
+}
+
+function connectToOfficialServer(gameArgs, address){
+    const next = []
+    const skipValue = new Set([
+        '--quickPlayMultiplayer',
+        '--quickPlaySingleplayer',
+        '--quickPlayRealms',
+        '--quickPlayPath',
+        '--server',
+        '--port'
+    ])
+    for(let i = 0; i < gameArgs.length; i++){
+        if(skipValue.has(gameArgs[i])){
+            i += 1
+            continue
+        }
+        next.push(gameArgs[i])
+    }
+    const target = quickPlayAddress(address)
+    if(target){
+        next.push('--quickPlayMultiplayer', target)
+    }
+    return next
+}
+
 function collectArgs(groups){
     const args = []
     for(const group of groups || []){
@@ -314,23 +376,178 @@ async function ensurePatchedClient(javaExe, commonDir, librariesDir, vanillaClie
     return patched
 }
 
-function markClientDist(jarPath){
-    const AdmZip = require('adm-zip')
-    const zip = new AdmZip(jarPath)
-    const entry = zip.getEntry('META-INF/MANIFEST.MF')
+const ZIP_LOC = 0x04034b50
+const ZIP_CEN = 0x02014b50
+const ZIP_END = 0x06054b50
+
+function findZipEnd(buf){
+    const min = Math.max(0, buf.length - 22 - 65535)
+    for(let i = buf.length - 22; i >= min; i--){
+        if(buf.readUInt32LE(i) === ZIP_END){
+            return i
+        }
+    }
+    throw new Error('O jar do cliente não é um zip válido.')
+}
+
+function listZipEntries(buf){
+    const eocd = findZipEnd(buf)
+    const count = buf.readUInt16LE(eocd + 10)
+    const cdOff = buf.readUInt32LE(eocd + 16)
+    if(count === 0xffff || cdOff === 0xffffffff){
+        throw new Error('O jar do cliente usa ZIP64.')
+    }
+    const entries = []
+    let cursor = cdOff
+    for(let n = 0; n < count; n++){
+        if(buf.readUInt32LE(cursor) !== ZIP_CEN){
+            throw new Error('O índice do jar está corrompido.')
+        }
+        const nameLen = buf.readUInt16LE(cursor + 28)
+        const extraLen = buf.readUInt16LE(cursor + 30)
+        const commentLen = buf.readUInt16LE(cursor + 32)
+        const recordLen = 46 + nameLen + extraLen + commentLen
+        entries.push({
+            name: buf.slice(cursor + 46, cursor + 46 + nameLen).toString('utf8'),
+            method: buf.readUInt16LE(cursor + 10),
+            crc: buf.readUInt32LE(cursor + 16),
+            csize: buf.readUInt32LE(cursor + 20),
+            usize: buf.readUInt32LE(cursor + 24),
+            localOff: buf.readUInt32LE(cursor + 42),
+            time: buf.readUInt16LE(cursor + 12),
+            date: buf.readUInt16LE(cursor + 14),
+            versionMade: buf.readUInt16LE(cursor + 4),
+            record: buf.slice(cursor, cursor + recordLen)
+        })
+        cursor += recordLen
+    }
+    return { eocd, cdOff, entries }
+}
+
+function zipEntryBytes(buf, entry){
+    const off = entry.localOff
+    if(buf.readUInt32LE(off) !== ZIP_LOC){
+        throw new Error('Cabeçalho local inválido em ' + entry.name)
+    }
+    const nameLen = buf.readUInt16LE(off + 26)
+    const extraLen = buf.readUInt16LE(off + 28)
+    const dataOff = off + 30 + nameLen + extraLen
+    return buf.slice(dataOff, dataOff + entry.csize)
+}
+
+function readManifestText(buf){
+    const { entries } = listZipEntries(buf)
+    const entry = entries.find((item) => item.name === 'META-INF/MANIFEST.MF')
     if(!entry){
+        return null
+    }
+    const compressed = zipEntryBytes(buf, entry)
+    const raw = entry.method === 0 ? compressed : zlib.inflateRawSync(compressed)
+    return raw.toString('utf8')
+}
+
+function rewriteManifestEntry(jarPath, text){
+    const buf = fs.readFileSync(jarPath)
+    const { eocd, cdOff, entries } = listZipEntries(buf)
+    const payload = Buffer.from(text, 'utf8')
+    const compressed = zlib.deflateRawSync(payload)
+    const crc = zlib.crc32(payload) >>> 0
+    const ordered = entries.slice().sort((a, b) => a.localOff - b.localOff)
+    const parts = []
+    const offsets = new Map()
+    let size = 0
+    if(ordered.length > 0 && ordered[0].localOff > 0){
+        parts.push(buf.slice(0, ordered[0].localOff))
+        size += ordered[0].localOff
+    }
+    for(let i = 0; i < ordered.length; i++){
+        const entry = ordered[i]
+        const end = i + 1 < ordered.length ? ordered[i + 1].localOff : cdOff
+        offsets.set(entry, size)
+        if(entry.name !== 'META-INF/MANIFEST.MF'){
+            const slice = buf.slice(entry.localOff, end)
+            parts.push(slice)
+            size += slice.length
+            continue
+        }
+        const name = Buffer.from(entry.name, 'utf8')
+        const header = Buffer.alloc(30)
+        header.writeUInt32LE(ZIP_LOC, 0)
+        header.writeUInt16LE(20, 4)
+        header.writeUInt16LE(0x0800, 6)
+        header.writeUInt16LE(8, 8)
+        header.writeUInt16LE(entry.time, 10)
+        header.writeUInt16LE(entry.date, 12)
+        header.writeUInt32LE(crc, 14)
+        header.writeUInt32LE(compressed.length, 18)
+        header.writeUInt32LE(payload.length, 22)
+        header.writeUInt16LE(name.length, 26)
+        header.writeUInt16LE(0, 28)
+        parts.push(header, name, compressed)
+        size += header.length + name.length + compressed.length
+    }
+    const cdStart = size
+    for(const entry of entries){
+        if(entry.name !== 'META-INF/MANIFEST.MF'){
+            const record = Buffer.from(entry.record)
+            record.writeUInt32LE(offsets.get(entry), 42)
+            parts.push(record)
+            size += record.length
+            continue
+        }
+        const name = Buffer.from(entry.name, 'utf8')
+        const header = Buffer.alloc(46)
+        header.writeUInt32LE(ZIP_CEN, 0)
+        header.writeUInt16LE(entry.versionMade, 4)
+        header.writeUInt16LE(20, 6)
+        header.writeUInt16LE(0x0800, 8)
+        header.writeUInt16LE(8, 10)
+        header.writeUInt16LE(entry.time, 12)
+        header.writeUInt16LE(entry.date, 14)
+        header.writeUInt32LE(crc, 16)
+        header.writeUInt32LE(compressed.length, 20)
+        header.writeUInt32LE(payload.length, 24)
+        header.writeUInt16LE(name.length, 28)
+        header.writeUInt32LE(offsets.get(entry), 42)
+        parts.push(header, name)
+        size += header.length + name.length
+    }
+    const end = Buffer.alloc(22)
+    end.writeUInt32LE(ZIP_END, 0)
+    end.writeUInt16LE(entries.length, 8)
+    end.writeUInt16LE(entries.length, 10)
+    end.writeUInt32LE(size - cdStart, 12)
+    end.writeUInt32LE(cdStart, 16)
+    parts.push(end)
+    const tmp = jarPath + '.writing'
+    fs.writeFileSync(tmp, Buffer.concat(parts))
+    fs.moveSync(tmp, jarPath, { overwrite: true })
+}
+
+function markClientDist(jarPath){
+    let text
+    try {
+        text = readManifestText(fs.readFileSync(jarPath))
+    } catch(err) {
+        logger.warn('Manifesto do cliente não foi lido. O lançamento continua.', err.message)
         return
     }
-    let text = entry.getData().toString('utf8')
-    if(text.includes('Minecraft-Dists:')){
+    if(text == null || text.includes('Minecraft-Dists:')){
         return
     }
-    text = text.replace(
+    const updated = text.replace(
         /Main-Class: net\.minecraft\.client\.Main\r?\n/,
         'Main-Class: net.minecraft.client.Main\r\nMinecraft-Dists: client\r\n'
     )
-    zip.updateFile('META-INF/MANIFEST.MF', Buffer.from(text, 'utf8'))
-    zip.writeZip(jarPath)
+    if(updated === text){
+        logger.warn('O manifesto não tem a Main-Class do cliente. O lançamento continua.')
+        return
+    }
+    try {
+        rewriteManifestEntry(jarPath, updated)
+    } catch(err) {
+        logger.warn('Não foi possível gravar Minecraft-Dists no manifesto. O lançamento continua.', err.message)
+    }
 }
 
 async function resolveNeoForgeJar(librariesDir){
@@ -355,11 +572,6 @@ async function resolveNeoForgeJar(librariesDir){
         }
     }
     throw new Error('NeoForge ' + NEOFORGE_VERSION + ' não está no Maven oficial.')
-}
-
-function playedGameDir(){
-    const appData = process.env.APPDATA || ''
-    return path.join(appData, '.minecraft', 'versions', 'NeoForge 26.2')
 }
 
 function templateClientDir(){
@@ -391,34 +603,24 @@ async function copyMissingTree(source, dest){
 }
 
 /**
- * Copia bibliotecas, assets e mods que já existem neste computador
- * para a pasta do Side-Mine. Arquivos que já estão lá não são substituídos.
+ * Copia só o modelo empacotado do cliente, se existir.
+ * Máquina limpa baixa Minecraft, bibliotecas, assets e Java para .side-mine.
  */
 async function injectKnownInstall(options){
     const commonDir = options.commonDir
     const gameDir = options.gameDir
-    const appData = process.env.APPDATA || ''
-    const minecraft = path.join(appData, '.minecraft')
-    const played = playedGameDir()
     const template = templateClientDir()
     let copied = 0
 
-    copied += await copyMissingTree(path.join(minecraft, 'libraries'), path.join(commonDir, 'libraries'))
-    copied += await copyMissingTree(path.join(minecraft, 'assets'), path.join(commonDir, 'assets'))
-
     const clientDest = path.join(commonDir, 'versions', '26.2', '26.2.jar')
-    for(const jar of [
-        path.join(played, 'NeoForge 26.2.jar'),
-        path.join(template, 'NeoForge 26.2.jar')
-    ]){
-        if(!fs.existsSync(clientDest) && fs.existsSync(jar)){
-            await fs.ensureDir(path.dirname(clientDest))
-            await fs.copy(jar, clientDest)
-            copied++
-        }
+    const templateJar = path.join(template, 'NeoForge 26.2.jar')
+    if(!fs.existsSync(clientDest) && fs.existsSync(templateJar)){
+        await fs.ensureDir(path.dirname(clientDest))
+        await fs.copy(templateJar, clientDest)
+        copied++
     }
 
-    for(const root of [played, template]){
+    for(const root of [template]){
         for(const folder of ['mods', 'config', 'data', 'defaultconfigs']){
             copied += await copyMissingTree(path.join(root, folder), path.join(gameDir, folder))
         }
@@ -556,30 +758,32 @@ async function launchNeoForge(options){
     }
 
     const extraJvm = (options.extraJvm || []).filter((arg) => !/UseG1GC|G1NewSizePercent|G1ReservePercent|MaxGCPauseMillis|G1HeapRegionSize|UseZGC|UnlockExperimentalVMOptions/.test(arg))
-    const jvmArgs = [
+    const jvmArgs = withWarningScreenArgs([
         '-Xms' + (options.minRam || '2G'),
         '-Xmx' + (options.maxRam || '4G'),
-        ...extraJvm
-    ]
-    if(logConfig){
-        jvmArgs.push(substitute(version.logging.client.argument || '-Dlog4j.configurationFile=${path}', vars))
-    }
-    jvmArgs.push(...collectArgs(version.arguments.default_user_jvm).map((arg) => substitute(arg, vars)))
-    jvmArgs.push(...collectArgs(version.arguments.jvm).map((arg) => substitute(arg, vars)))
+        ...extraJvm,
+        ...(logConfig ? [substitute(version.logging.client.argument || '-Dlog4j.configurationFile=${path}', vars)] : []),
+        ...collectArgs(version.arguments.default_user_jvm).map((arg) => substitute(arg, vars)),
+        ...collectArgs(version.arguments.jvm).map((arg) => substitute(arg, vars))
+    ])
 
-    const gameArgs = collectArgs(version.arguments.game).map((arg) => substitute(arg, vars))
+    const gameArgs = connectToOfficialServer(
+        collectArgs(version.arguments.game).map((arg) => substitute(arg, vars)),
+        options.serverAddress
+    )
     const args = [...jvmArgs, version.mainClass, ...gameArgs]
     const argFile = path.join(gameDir, 'side-mine-launch.args')
     await fs.writeFile(argFile, args.map(quoteArg).join('\n'), 'utf8')
 
+    disableLoadWarningScreen(gameDir)
+    const { injectDynamicServer } = require('./serversdat')
+    injectDynamicServer(gameDir, options.serverName, options.serverAddress)
     logger.info('Starting NeoForge', version.mainClass)
     const child = spawn(options.javaExe, ['@' + argFile], {
         cwd: gameDir,
-        detached: !!options.detached
+        detached: true
     })
-    if(options.detached){
-        child.unref()
-    }
+    child.unref()
     child.stdout.setEncoding('utf8')
     child.stderr.setEncoding('utf8')
     child.stdout.on('data', (data) => {
@@ -605,4 +809,4 @@ async function launchNeoForge(options){
     return child
 }
 
-module.exports = { launchNeoForge, injectKnownInstall }
+module.exports = { launchNeoForge, injectKnownInstall, withWarningScreenArgs, WARNING_SCREEN_ARGS, disableLoadWarningScreen }

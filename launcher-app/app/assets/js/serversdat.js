@@ -229,13 +229,131 @@ function readServers(buffer){
     return { name, value: reader.payload(TAG.COMPOUND) }
 }
 
-function writeServers(root){
+function writeServers(root, compress){
     const body = Buffer.concat([
         Buffer.from([TAG.COMPOUND]),
         writeString(root.name || ''),
         writePayload(TAG.COMPOUND, root.value)
     ])
-    return zlib.gzipSync(body)
+    return compress ? zlib.gzipSync(body) : body
+}
+
+function isGzip(buffer){
+    return buffer.length >= 2 && buffer[0] === 0x1f && buffer[1] === 0x8b
+}
+
+function buildServersDat(serverName, serverAddress){
+    const nameBuf = Buffer.from(serverName, 'utf8')
+    const addrBuf = Buffer.from(serverAddress, 'utf8')
+    const header = Buffer.from([
+        0x0a, 0x00, 0x00,
+        0x09, 0x00, 0x07, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x73,
+        0x0a, 0x00, 0x00, 0x00, 0x01
+    ])
+    const ipTagHeader = Buffer.from([0x08, 0x00, 0x02, 0x69, 0x70])
+    const ipLenBuf = Buffer.alloc(2)
+    ipLenBuf.writeUInt16BE(addrBuf.length)
+    const nameTagHeader = Buffer.from([0x08, 0x00, 0x04, 0x6e, 0x61, 0x6d, 0x65])
+    const nameLenBuf = Buffer.alloc(2)
+    nameLenBuf.writeUInt16BE(nameBuf.length)
+    const footer = Buffer.from([0x00, 0x00])
+    return Buffer.concat([
+        header,
+        ipTagHeader, ipLenBuf, addrBuf,
+        nameTagHeader, nameLenBuf, nameBuf,
+        footer
+    ])
+}
+
+function resolveOfficialServer(distributionFile, serverId){
+    const distro = JSON.parse(fs.readFileSync(distributionFile, 'utf8'))
+    const servers = distro.servers || []
+    const server = servers.find((item) => item.id === serverId)
+        || servers.find((item) => item.mainServer)
+        || servers[0]
+    if(!server || !server.address || !server.name){
+        throw new Error('distribution.json não tem o endereço do servidor')
+    }
+    return { name: server.name, address: server.address }
+}
+
+const OFFICIAL_MARKER = 'side-mine-official.json'
+
+function markerPath(dataDirPath){
+    return path.join(dataDirPath, OFFICIAL_MARKER)
+}
+
+function readOfficialMarker(dataDirPath){
+    const file = markerPath(dataDirPath)
+    if(!fs.existsSync(file)){
+        return null
+    }
+    try {
+        const data = JSON.parse(fs.readFileSync(file, 'utf8'))
+        if(data && data.name && data.address){
+            return { name: data.name, address: data.address }
+        }
+    } catch(err) {
+        return null
+    }
+    return null
+}
+
+function writeOfficialMarker(dataDirPath, serverName, serverAddress){
+    fs.writeFileSync(markerPath(dataDirPath), JSON.stringify({
+        name: serverName,
+        address: serverAddress
+    }), 'utf8')
+}
+
+function matchesIdentity(server, identity){
+    if(!identity){
+        return false
+    }
+    return stringValue(server, 'name') === identity.name || stringValue(server, 'ip') === identity.address
+}
+
+function injectDynamicServer(dataDirPath, serverName, serverAddress){
+    if(!serverName || !serverAddress){
+        return
+    }
+    const serversDatPath = path.join(dataDirPath, 'servers.dat')
+    fs.ensureDirSync(dataDirPath)
+    const current = { name: serverName, address: serverAddress }
+    const previous = readOfficialMarker(dataDirPath)
+    if(!fs.existsSync(serversDatPath)){
+        fs.writeFileSync(serversDatPath, buildServersDat(serverName, serverAddress))
+        writeOfficialMarker(dataDirPath, serverName, serverAddress)
+        console.log('[Side-Mine] Servidor ' + serverName + ' (' + serverAddress + ') injetado com sucesso no servers.dat!')
+        return
+    }
+    try {
+        const original = fs.readFileSync(serversDatPath)
+        const root = readServers(original)
+        if(!root.value.servers || root.value.servers.type !== TAG.LIST){
+            fs.writeFileSync(serversDatPath, buildServersDat(serverName, serverAddress))
+            writeOfficialMarker(dataDirPath, serverName, serverAddress)
+            return
+        }
+        const list = root.value.servers.value
+        if(!list || list.elementType !== TAG.COMPOUND){
+            fs.writeFileSync(serversDatPath, buildServersDat(serverName, serverAddress))
+            writeOfficialMarker(dataDirPath, serverName, serverAddress)
+            return
+        }
+        const kept = previous
+            ? list.items.filter((server) => !matchesIdentity(server, previous) && !matchesIdentity(server, current))
+            : []
+        list.items = [{
+            name: { type: TAG.STRING, value: serverName },
+            ip: { type: TAG.STRING, value: serverAddress }
+        }, ...kept]
+        fs.writeFileSync(serversDatPath, writeServers(root, isGzip(original)))
+        writeOfficialMarker(dataDirPath, serverName, serverAddress)
+        console.log('[Side-Mine] Servidor ' + serverName + ' (' + serverAddress + ') substituiu o anterior no servers.dat!')
+    } catch(err) {
+        console.error('[Side-Mine] Erro ao injetar o servidor dinâmico:', err)
+    }
 }
 
 function stringValue(compound, key){
@@ -244,51 +362,20 @@ function stringValue(compound, key){
 }
 
 /**
- * Keep a named server in Minecraft's multiplayer list.
- * Other entries are left in place. The address of the named server
- * is replaced with the value from the launcher settings.
+ * Substitui o servidor oficial anterior pelo endereço atual do distribution.json.
  *
  * @param {string} gameDir Instance directory that contains servers.dat.
  * @param {string} name Server name shown in the multiplayer screen.
  * @param {string} address Host, or host:port.
  */
 function ensureSidequestServer(gameDir, name, address){
-    const file = path.join(gameDir, 'servers.dat')
-    fs.ensureDirSync(gameDir)
-
-    let root
-    if(fs.existsSync(file)){
-        root = readServers(fs.readFileSync(file))
-    } else {
-        root = { name: '', value: {} }
-    }
-
-    if(!root.value.servers || root.value.servers.type !== TAG.LIST){
-        root.value.servers = {
-            type: TAG.LIST,
-            value: { elementType: TAG.COMPOUND, items: [] }
-        }
-    }
-
-    const list = root.value.servers.value
-    if(list.elementType !== TAG.COMPOUND){
-        throw new Error('servers.dat servers list is not a compound list')
-    }
-
-    const existing = list.items.find(server => stringValue(server, 'name') === name)
-    if(existing){
-        existing.ip = { type: TAG.STRING, value: address }
-    } else {
-        list.items.unshift({
-            name: { type: TAG.STRING, value: name },
-            ip: { type: TAG.STRING, value: address }
-        })
-    }
-
-    fs.writeFileSync(file, writeServers(root))
+    injectDynamicServer(gameDir, name, address)
 }
 
 module.exports = {
     ensureSidequestServer,
-    readServers
+    injectDynamicServer,
+    resolveOfficialServer,
+    readServers,
+    buildServersDat
 }

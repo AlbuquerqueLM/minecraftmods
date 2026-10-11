@@ -251,9 +251,14 @@
       "md5": "abe369fc5ed85880dc3d89974c9d3d74"
     },
     {
+      "path": "app/assets/js/closeafterlaunch.js",
+      "size": 1522,
+      "md5": "c75c18ebe97698fcd8b92fed01c85fbf"
+    },
+    {
       "path": "app/assets/js/configmanager.js",
-      "size": 27852,
-      "md5": "9371f2d55e91cd81402f1eb70d9296ca"
+      "size": 28413,
+      "md5": "382490ea472deb5abec14ee0a4adb50b"
     },
     {
       "path": "app/assets/js/discordwrapper.js",
@@ -297,8 +302,8 @@
     },
     {
       "path": "app/assets/js/neoforgelaunch.js",
-      "size": 22430,
-      "md5": "daf2ca79349440db1a12670ee0e95dfc"
+      "size": 30065,
+      "md5": "e8a65e0c889053889e2cedcb9ac31f77"
     },
     {
       "path": "app/assets/js/preloader.js",
@@ -307,13 +312,13 @@
     },
     {
       "path": "app/assets/js/processbuilder.js",
-      "size": 35958,
-      "md5": "3d1d32a24b87fb05ffd0067a36b59c6b"
+      "size": 36016,
+      "md5": "6e893cf3f2bed9c85944ed23916aa761"
     },
     {
       "path": "app/assets/js/scripts/landing.js",
-      "size": 52058,
-      "md5": "ff3f7fd6308c6fab8d5b3c3e2b5256cb"
+      "size": 53123,
+      "md5": "5e361ff6a4035a9f8f9f6e3a617430c4"
     },
     {
       "path": "app/assets/js/scripts/login.js",
@@ -332,13 +337,13 @@
     },
     {
       "path": "app/assets/js/scripts/settings.js",
-      "size": 60541,
-      "md5": "2fe259289205e22ece4cf5f80f3ae5ad"
+      "size": 60629,
+      "md5": "206f7021047e9e1cba887ab0afb5b5b4"
     },
     {
       "path": "app/assets/js/scripts/uibinder.js",
-      "size": 17628,
-      "md5": "e5250f950849cf16b5763f58d56013c4"
+      "size": 17766,
+      "md5": "2b9c8d725a5cc335f7c12b09c103aac1"
     },
     {
       "path": "app/assets/js/scripts/uicore.js",
@@ -352,8 +357,8 @@
     },
     {
       "path": "app/assets/js/serversdat.js",
-      "size": 8704,
-      "md5": "f6526650c64880b89be8095f22835693"
+      "size": 12313,
+      "md5": "be13c5f07a6e9e8992e7908b310e8b09"
     },
     {
       "path": "app/assets/js/serverstatus.js",
@@ -422,8 +427,8 @@
     },
     {
       "path": "main.js",
-      "size": 9552,
-      "md5": "39add57820d05e57460491893382993b"
+      "size": 10119,
+      "md5": "96cb63eb75967b439e1f0067bc989e96"
     }
   ]
 }

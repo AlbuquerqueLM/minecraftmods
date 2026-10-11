@@ -337,12 +337,12 @@ function syncSidequestServer(){
     const path = require('path')
     const serverId = ConfigManager.getSelectedServer() || 'side-mine-server'
     const gameDir = path.join(ConfigManager.getInstanceDirectory(), serverId)
-    const { ensureSidequestServer } = require('./assets/js/serversdat')
-    ensureSidequestServer(
-        gameDir,
-        ConfigManager.getSidequestServerName(),
-        ConfigManager.getMultiplayerAddress()
+    const { injectDynamicServer, resolveOfficialServer } = require('./assets/js/serversdat')
+    const official = resolveOfficialServer(
+        path.join(ConfigManager.getLauncherDirectory(), 'distribution.json'),
+        serverId
     )
+    injectDynamicServer(gameDir, official.name, official.address)
 }
 
 /* Closes the settings view and saves all data. */

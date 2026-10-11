@@ -261,7 +261,17 @@ const refreshServerStatus = async (fade = false) => {
 
     try {
 
-        const target = ConfigManager.parseMultiplayerAddress(ConfigManager.getMultiplayerAddress())
+        let address = ConfigManager.getMultiplayerAddress()
+        try {
+            const distro = await DistroAPI.getDistribution()
+            const selected = distro.getServerById(ConfigManager.getSelectedServer())
+            if(selected && selected.rawServer && selected.rawServer.address){
+                address = selected.rawServer.address
+            }
+        } catch(err) {
+            loggerLanding.debug(err)
+        }
+        const target = ConfigManager.parseMultiplayerAddress(address)
         const servStat = await getServerStatus(47, target.hostname, target.port)
         console.log(servStat)
         pLabel = Lang.queryJS('landing.serverStatus.players')
@@ -617,7 +627,9 @@ async function dlAsync(login = true) {
                 minRam: ConfigManager.getMinRAM(serv.rawServer.id),
                 maxRam: ConfigManager.getMaxRAM(serv.rawServer.id),
                 extraJvm: ConfigManager.getJVMOptions(serv.rawServer.id),
-                detached: ConfigManager.getLaunchDetached(),
+                detached: true,
+                serverName: serv.rawServer.name,
+                serverAddress: serv.rawServer.address,
                 versionLabel: remote.app.getVersion(),
                 onProgress: (percent, label) => {
                     if(label){
@@ -693,6 +705,7 @@ async function dlAsync(login = true) {
             }
         }
 
+        let launchBound = false
         try {
             // Bind listeners to stdout.
             proc.stdout.on('data', tempListener)
@@ -712,11 +725,22 @@ async function dlAsync(login = true) {
                 })
             }
 
+            launchBound = true
         } catch(err) {
 
             loggerLaunchSuite.error('Error during launch', err)
             showLaunchFailure(Lang.queryJS('landing.dlAsync.errorDuringLaunchTitle'), Lang.queryJS('landing.dlAsync.checkConsoleForDetails'))
 
+        }
+        if(launchBound){
+            const { scheduleLauncherExit } = require('./assets/js/closeafterlaunch')
+            scheduleLauncherExit(proc, {
+                quit: () => remote.app.quit(),
+                onFailure: (message) => {
+                    loggerLaunchSuite.error('O jogo não permaneceu aberto.', message)
+                    showLaunchFailure(Lang.queryJS('landing.dlAsync.errorDuringLaunchTitle'), message)
+                }
+            })
         }
     }
 
@@ -1200,7 +1224,7 @@ function setPlayButtonMode(needsUpdate){
     const force = document.getElementById('tlForceUpdate').checked
     const update = needsUpdate || force
     button.dataset.mode = update ? 'update' : 'play'
-    button.textContent = 'JOGAR'
+    button.textContent = update ? 'Atualizar e Jogar' : 'Jogar'
 }
 
 async function refreshPlayState(){
@@ -1390,7 +1414,7 @@ function openSkinsView(){
         const { skinFromUrl } = require('./assets/js/elyskin')
         useElySkin(skinFromUrl(event.url))
     })
-    webview.src = 'https://ely.by/skins'
+    webview.src = 'https://ely.by'
     elybyReady = true
 }
 
