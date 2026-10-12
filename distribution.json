@@ -710,6 +710,17 @@
           }
         },
         {
+          "id": "mods/extra-animations-1.0.1-neoforge+26.2.jar",
+          "name": "extra-animations-1.0.1-neoforge+26.2.jar",
+          "type": "File",
+          "artifact": {
+            "size": 680433,
+            "MD5": "47fbca45617d331743063d5f683d2f26",
+            "path": "mods/extra-animations-1.0.1-neoforge+26.2.jar",
+            "url": "https://albuquerquelm.github.io/minecraftmods/mods/extra-animations-1.0.1-neoforge%2B26.2.jar?v=47fbca45617d331743063d5f683d2f26"
+          }
+        },
+        {
           "id": "mods/EyesInTheDarkness-26.2-1.12.0.jar",
           "name": "EyesInTheDarkness-26.2-1.12.0.jar",
           "type": "File",
@@ -1480,6 +1491,28 @@
           }
         },
         {
+          "id": "mods/pamhc2foodcore-NEOFORGE-1.26.2-1.0.0.jar",
+          "name": "pamhc2foodcore-NEOFORGE-1.26.2-1.0.0.jar",
+          "type": "File",
+          "artifact": {
+            "size": 1736276,
+            "MD5": "4b804c81c6391a3fb1201f5aab60c654",
+            "path": "mods/pamhc2foodcore-NEOFORGE-1.26.2-1.0.0.jar",
+            "url": "https://albuquerquelm.github.io/minecraftmods/mods/pamhc2foodcore-NEOFORGE-1.26.2-1.0.0.jar?v=4b804c81c6391a3fb1201f5aab60c654"
+          }
+        },
+        {
+          "id": "mods/pamhc2foodextended-NEOFORGE-1.26.2-1.0.0.jar",
+          "name": "pamhc2foodextended-NEOFORGE-1.26.2-1.0.0.jar",
+          "type": "File",
+          "artifact": {
+            "size": 2149114,
+            "MD5": "71150b26129b9cbf78979e0e18f835fb",
+            "path": "mods/pamhc2foodextended-NEOFORGE-1.26.2-1.0.0.jar",
+            "url": "https://albuquerquelm.github.io/minecraftmods/mods/pamhc2foodextended-NEOFORGE-1.26.2-1.0.0.jar?v=71150b26129b9cbf78979e0e18f835fb"
+          }
+        },
+        {
           "id": "mods/Ping-Wheel-1.12.1-neoforge-26.2.jar",
           "name": "Ping-Wheel-1.12.1-neoforge-26.2.jar",
           "type": "File",
@@ -1994,6 +2027,17 @@
             "MD5": "263f4602d290062cfdac88422a68b9f1",
             "path": "mods/UniLib-1.2.1+26.2-neoforge.jar",
             "url": "https://albuquerquelm.github.io/minecraftmods/mods/UniLib-1.2.1%2B26.2-neoforge.jar?v=263f4602d290062cfdac88422a68b9f1"
+          }
+        },
+        {
+          "id": "mods/villageroles-0.2.0.jar",
+          "name": "villageroles-0.2.0.jar",
+          "type": "File",
+          "artifact": {
+            "size": 1323346,
+            "MD5": "91732e6d7daafedfa2ec18a29ec1711f",
+            "path": "mods/villageroles-0.2.0.jar",
+            "url": "https://albuquerquelm.github.io/minecraftmods/mods/villageroles-0.2.0.jar?v=91732e6d7daafedfa2ec18a29ec1711f"
           }
         },
         {
