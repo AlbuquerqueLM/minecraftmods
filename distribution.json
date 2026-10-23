@@ -1128,6 +1128,17 @@
           }
         },
         {
+          "id": "mods/mca-neoforge-8.1.11+26.2.jar",
+          "name": "mca-neoforge-8.1.11+26.2.jar",
+          "type": "File",
+          "artifact": {
+            "size": 12032852,
+            "MD5": "1ddd52f886f62a9f84d12a09bf13d278",
+            "path": "mods/mca-neoforge-8.1.11+26.2.jar",
+            "url": "https://albuquerquelm.github.io/minecraftmods/mods/mca-neoforge-8.1.11%2B26.2.jar?v=1ddd52f886f62a9f84d12a09bf13d278"
+          }
+        },
+        {
           "id": "mods/mcw-bridges-3.1.2-mc26.2neoforge.jar",
           "name": "mcw-bridges-3.1.2-mc26.2neoforge.jar",
           "type": "File",
@@ -8715,6 +8726,17 @@
             "MD5": "299313abdd8f0ce1a2ef6a5bd587889f",
             "path": "config/magnumtorch-server.toml",
             "url": "https://albuquerquelm.github.io/minecraftmods/config/magnumtorch-server.toml?v=299313abdd8f0ce1a2ef6a5bd587889f"
+          }
+        },
+        {
+          "id": "config/mca.json",
+          "name": "mca.json",
+          "type": "File",
+          "artifact": {
+            "size": 9710,
+            "MD5": "fa4c159efe56a04157cbe19d7274056f",
+            "path": "config/mca.json",
+            "url": "https://albuquerquelm.github.io/minecraftmods/config/mca.json?v=fa4c159efe56a04157cbe19d7274056f"
           }
         },
         {
